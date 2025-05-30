@@ -33,7 +33,7 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-zinc-950/60 backdrop-blur-3xl border-b border-zinc-800/30">
       <div className="container mx-auto px-4 py-4 md:px-8 md:py-6">
-        <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-400 via-violet-400 to-purple-400 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/20">
               <span className="text-zinc-900 font-bold text-lg">A</span>
@@ -54,13 +54,15 @@ export const Navbar = () => {
 
           <div className="flex items-center space-x-6 ">
             <a
-              href="#"
+              href="https://github.com/DiegoPMz"
+              target="_blank"
               className="text-zinc-500 hover:text-blue-400 transition-all duration-500 hover:scale-110"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/diego-peralta-b9b012291/"
+              target="_blank"
               className="text-zinc-500 hover:text-blue-400 transition-all duration-500 hover:scale-110"
             >
               <Linkedin className="w-5 h-5" />

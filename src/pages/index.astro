@@ -1,10 +1,14 @@
 ---
+import HeroSection from "@/components/HeroSection.astro";
 import { Navbar } from "@/components/Navbar";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="min-h-screen bg-black">
+  <div
+    class="bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative"
+  >
     <Navbar client:visible />
-  </main>
+    <HeroSection />
+  </div>
 </Layout>
