@@ -69,7 +69,7 @@ export const Navbar = () => {
             </a>
 
             {/* Mobile menu button */}
-            <div className="lg:hidden flex items-center pl-4">
+            <div className="lg:hidden flex items-center sm:pl-4">
               <button
                 className="cursor-pointer text-zinc-400 hover:text-zinc-100 transition-all duration-500 "
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

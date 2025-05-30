@@ -1,0 +1,96 @@
+---
+import { Code2, TrendingUp, Users } from "lucide-react";
+import { CardAboutMeDetails } from "./CardAboutMeDetails";
+import { IconBox } from "./ui/IconBox";
+---
+
+<section id="about" class="relative py-16 md:py-32 px-4 md:px-8">
+  <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+        <div class="space-y-8">
+          <div class="space-y-6">
+            <h2 class="text-4xl md:text-6xl font-extralight tracking-tight">
+              <span class="text-zinc-200">Sobre</span>
+              <span
+                class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              >
+                mí
+              </span>
+            </h2>
+            <div
+              class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"
+            >
+            </div>
+          </div>
+
+          <div
+            class="space-y-6 text-xl text-zinc-400 font-light leading-relaxed"
+          >
+            <p>
+              Soy un desarrollador full stack autodidacta con una pasión genuina
+              por la tecnología y el aprendizaje continuo. Aunque soy nuevo en
+              el mundo profesional, he dedicado los últimos años a dominar las
+              tecnologías modernas de desarrollo web a través de proyectos
+              personales y cursos especializados.
+            </p>
+            <p>
+              Mi enfoque se centra en escribir código limpio, crear interfaces
+              intuitivas y desarrollar soluciones escalables. Cada proyecto que
+              construyo es una oportunidad para aprender algo nuevo y
+              perfeccionar mis habilidades técnicas.
+            </p>
+            <p>
+              Estoy emocionado por encontrar mi primera oportunidad profesional
+              donde pueda contribuir con ideas frescas, aprender de
+              desarrolladores experimentados y formar parte de un equipo que
+              construya productos que marquen la diferencia.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+            <div class="text-center space-y-3">
+              <IconBox
+                className="bg-gradient-to-br from-blue-500/20 to-purple-500/20"
+              >
+                <Code2 className="w-8 h-8 text-blue-400" />
+              </IconBox>
+
+              <h3 class="text-lg font-light text-zinc-100">Código Limpio</h3>
+              <p class="text-zinc-500 text-sm">
+                Escribo código mantenible y bien documentado
+              </p>
+            </div>
+            <div class="text-center space-y-3">
+              <IconBox
+                className="bg-gradient-to-br from-violet-500/20 to-purple-500/20"
+              >
+                <TrendingUp className="w-8 h-8 text-violet-400" />
+              </IconBox>
+              <h3 class="text-lg font-light text-zinc-100">
+                Crecimiento Continuo
+              </h3>
+              <p class="text-zinc-500 text-sm">
+                Siempre buscando aprender y mejorar
+              </p>
+            </div>
+            <div class="text-center space-y-3">
+              <IconBox
+                className="bg-gradient-to-br from-purple-500/20 to-pink-500/20"
+              >
+                <Users className="w-8 h-8 text-purple-400" />
+              </IconBox>
+
+              <h3 class="text-lg font-light text-zinc-100">
+                Trabajo en Equipo
+              </h3>
+              <p class="text-zinc-500 text-sm">Colaborativo y comunicativo</p>
+            </div>
+          </div>
+        </div>
+
+        <CardAboutMeDetails />
+      </div>
+    </div>
+  </div>
+</section>

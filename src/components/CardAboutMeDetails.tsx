@@ -1,0 +1,49 @@
+import { Calendar, Download, Mail, MapPin } from "lucide-react";
+import { GradientButton } from "./ui/GradientButton";
+
+export const CardAboutMeDetails = () => {
+  return (
+    <div className="relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-violet-500/20 to-purple-500/20 blur-3xl rounded-full"></div>
+      <div className="relative">
+        <div className="bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm rounded-3xl p-8 border border-zinc-700/30">
+          <div className="space-y-6">
+            <div className="text-center space-y-4">
+              <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full mx-auto flex items-center justify-center">
+                <span className="text-zinc-900 text-4xl font-bold">DP</span>
+              </div>
+              <div>
+                <h3 className="text-2xl font-light text-zinc-100">
+                  Diego Peralta
+                </h3>
+                <p className="text-zinc-400">Desarrollador Full Stack Junior</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-6 border-t border-zinc-700/30">
+              <div className="flex items-center space-x-3 text-zinc-400">
+                <MapPin className="w-5 h-5 text-blue-400" />
+                <span>Cdmx, México</span>
+              </div>
+              <div className="flex items-center space-x-3 text-zinc-400">
+                <Calendar className="w-5 h-5 text-blue-400" />
+                <span>Disponible inmediatamente</span>
+              </div>
+              <div className="flex items-center space-x-3 text-zinc-400">
+                <Mail className="w-5 h-5 text-blue-400" />
+                <span>diego.pmz08@gmail.com</span>
+              </div>
+            </div>
+
+            <div className="pt-6">
+              <GradientButton>
+                <Download className="w-5 h-5 text-zinc-900" />
+                <span className="text-zinc-900 font-medium">Descargar CV</span>
+              </GradientButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
