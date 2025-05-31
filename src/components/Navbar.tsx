@@ -36,7 +36,7 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-400 via-violet-400 to-purple-400 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/20">
-              <span className="text-zinc-900 font-bold text-lg">A</span>
+              <span className="text-zinc-900 font-bold text-lg">D</span>
             </div>
             <div>
               <div className="text-xl font-light tracking-tight text-zinc-100">

@@ -1,0 +1,90 @@
+---
+import { ProjectCard } from "./ProjectCard";
+
+const projects = [
+  {
+    title: "DevLinks",
+    subtitle: "App para crear tu perfil de enlaces personalizado",
+    description:
+      "Centraliza tus enlaces clave en un perfil profesional personalizable. Agrega tus redes sociales para que tu audiencia pueda encontrarte fácilmente. Actualiza tu contenido en cualquier momento sin cambiar el enlace principal.",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Zustand",
+      "TypeScript",
+      "Nodejs",
+      "Express",
+      "MongoDb",
+    ],
+    image: "/mockupDevlinks.png",
+    github: "https://github.com/DiegoPMz/devlink-frontend",
+    demo: "https://devlink-frontend.vercel.app/",
+    category: "Web Application",
+    year: "2024",
+    status: "Production",
+  },
+  {
+    title: "KanbanApp",
+    subtitle: "Aplicación para organizar tareas diarias",
+    description:
+      "Una app minimalista para gestionar tareas al estilo Kanban. Sin complicaciones: solo tableros, tarjetas y arrastrar/soltar. Perfecta para quienes aman la productividad sin distracciones.",
+    technologies: ["React", "Vite", "Dnd kit"],
+    image: "/placeholder.svg?height=500&width=800",
+    github: "https://github.com/DiegoPMz/KanbanApp",
+    demo: "https://kanban-app-nine-xi.vercel.app/",
+    category: "Web Application",
+    year: "2023",
+    status: "Production",
+  },
+  {
+    title: "Where in the world?",
+    subtitle: "Página que te muestra datos clave de cada país",
+    description:
+      "Fuente de consulta organizada con información geográfica y política actualizada. Contiene: monedas, dominios web oficiales, divisiones administrativas y datos clave de cada país. Perfecta para proyectos académicos o aprendizaje.",
+    technologies: ["React", "Vite", "React router", "Api-countries"],
+    image: "/placeholder.svg?height=500&width=800",
+    github: "https://github.com/DiegoPMz/where-in-the-world",
+    demo: "https://where-in-the-world-ashy.vercel.app/",
+    category: "Reference Web App",
+    year: "2023",
+    status: "Production",
+  },
+];
+---
+
+<section id="portfolio" class="relative py-16 md:py-32 px-4 md:px-8">
+  <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-24">
+        <div class="space-y-6">
+          <h2 class="text-4xl md:text-6xl font-extralight tracking-tight">
+            <span class="text-zinc-200">Portfolio</span>
+            <span
+              class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Seleccionado
+            </span>
+          </h2>
+          <div
+            class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+          >
+          </div>
+          <p
+            class="text-xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed"
+          >
+            Una cuidadosa selección de proyectos que demuestran excelencia
+            técnica, innovación y impacto empresarial real.
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-32">
+        {
+          projects.map((project, index) => (
+            <ProjectCard project={project} position={index} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
