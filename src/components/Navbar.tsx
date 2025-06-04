@@ -4,9 +4,9 @@ import { useState } from "react";
 const NavbarLinks = ({ onClick }: { onClick?: () => void }) => {
   const PAGE_SECTIONS = [
     { name: "Inicio", link: "#home" },
-    { name: "About", link: "#about" },
-    { name: "Expertise", link: "#expertise" },
-    { name: "Portfolio", link: "#portfolio" },
+    { name: "Sobre mi", link: "#about" },
+    { name: "Conocimientos", link: "#expertise" },
+    { name: "Portafolio", link: "#portafolio" },
     { name: "Contacto", link: "#contact" },
   ];
 

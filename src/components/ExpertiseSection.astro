@@ -1,0 +1,84 @@
+---
+import { Database, Globe, Server, ShieldCheck } from "lucide-react";
+import ExpertiseCard from "./ExpertiseCard.astro";
+
+const expertise = [
+  {
+    title: "Arquitectura Frontend",
+    description:
+      "Desarrollo de interfaces dinámicas y de alto rendimiento con tecnologías modernas para experiencias digitales transformadoras",
+    technologies: [
+      "React",
+      "Angular",
+      "TypeScript",
+      "Astro",
+      "Vite",
+      "Tailwind CSS",
+      "RxJS",
+    ],
+    icon: Globe,
+  },
+  {
+    title: "Testing Frontend",
+    description:
+      "Implementación de pruebas robustas para garantizar calidad y funcionalidad en aplicaciones web",
+    technologies: ["Jest", "Vitest", "Testing Library"],
+    icon: ShieldCheck,
+  },
+  {
+    title: "Desarrollo Backend",
+    description:
+      "Construcción de APIs escalables y sistemas empresariales con tecnologías full-stack",
+    technologies: [
+      "Node.js",
+      "Express",
+      "Java",
+      "Spring Boot",
+      "JWT",
+      "Mongoose",
+      "Hibernate",
+    ],
+    icon: Server,
+  },
+  {
+    title: "Gestión de Datos",
+    description:
+      "Diseño e implementación de soluciones de almacenamiento eficientes para aplicaciones modernas",
+    technologies: ["MySQL", "MongoDB"],
+    icon: Database,
+  },
+];
+---
+
+<section id="expertise" class="relative py-16 md:py-32 px-4 md:px-8">
+  <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-24">
+        <div class="space-y-6">
+          <h2 class="text-4xl md:text-6xl font-extralight tracking-tight">
+            <span class="text-zinc-200">Áreas de</span>
+            <span
+              class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Conocimiento
+            </span>
+          </h2>
+          <div
+            class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+          >
+          </div>
+          <p
+            class="text-xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed"
+          >
+            Aplicación de tecnologías web actuales para crear proyectos
+            funcionales con código limpio y eficiente.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+        {expertise.map((area) => <ExpertiseCard expertise={area} />)}
+      </div>
+    </div>
+  </div>
+</section>
