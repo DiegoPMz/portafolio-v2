@@ -2,6 +2,7 @@
 import { ArrowRight, Calendar, Download, MapPin } from "lucide-react";
 import DecoratedCard from "./DecoratedCard.astro";
 import { Button } from "./ui/button";
+import { DecoratedButton } from "./ui/DecoratedButton";
 
 const achievements = [
   { metric: "5+", label: "Proyectos Personales" },
@@ -62,7 +63,7 @@ const achievements = [
           </div>
 
           <div class="flex flex-col gap-4 md:gap-6 pt-8">
-            <button
+            <!-- <button
               class="group relative bg-zinc-900/80 hover:bg-zinc-800/80 border-2 border-zinc-700/50 hover:border-zinc-500/70 rounded-2xl px-8 py-4 md:px-12 md:py-6 transition-all duration-500 overflow-hidden backdrop-blur-sm"
             >
               <div
@@ -93,9 +94,24 @@ const achievements = [
                   />
                 </div>
               </div>
-            </button>
+            </button> -->
 
-            <Button variant="blue">
+            <DecoratedButton>
+              <span
+                class="text-zinc-200 group-hover:text-zinc-100 font-medium text-lg transition-colors duration-300"
+              >
+                Explorar Portfolio
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <ArrowRight
+                  className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 group-hover:translate-x-1 transition-all duration-300"
+                />
+              </div>
+            </DecoratedButton>
+
+            <Button variant="blue" size={"sm"}>
               <Download
                 className="w-5 h-5 text-zinc-300 group-hover:text-zinc-100 transition-colors duration-300"
               />
