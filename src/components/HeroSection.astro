@@ -1,4 +1,5 @@
 ---
+import heroImage from "@/assets/home/pixelDiegoImg.webp";
 import { ArrowRight, Calendar, Download, MapPin } from "lucide-react";
 import DecoratedCard from "./DecoratedCard.astro";
 import { Button } from "./ui/button";
@@ -144,7 +145,7 @@ const achievements = [
       </div>
 
       <div class="w-full lg:col-span-5">
-        <DecoratedCard src="/imgDiegoFotfsdfoMMM.webp" />
+        <DecoratedCard src={heroImage.src} alt="Imagen de Diego Peralta" />
       </div>
     </div>
   </div>

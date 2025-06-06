@@ -56,6 +56,7 @@ export const Navbar = () => {
             <a
               href="https://github.com/DiegoPMz"
               target="_blank"
+              aria-label="Perfil de GitHub de Diego Peralta"
               className="text-zinc-500 hover:text-blue-400 transition-all duration-500 hover:scale-110"
             >
               <Github className="w-5 h-5" />
@@ -63,6 +64,7 @@ export const Navbar = () => {
             <a
               href="https://www.linkedin.com/in/diego-peralta-b9b012291/"
               target="_blank"
+              aria-label="Perfil de Linkedin de Diego Peralta"
               className="text-zinc-500 hover:text-blue-400 transition-all duration-500 hover:scale-110"
             >
               <Linkedin className="w-5 h-5" />

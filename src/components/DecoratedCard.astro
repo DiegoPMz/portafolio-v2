@@ -3,9 +3,10 @@ import { Award } from "lucide-react";
 
 interface Props {
   src: string;
+  alt?: string;
 }
 
-const { src } = Astro.props;
+const { src, alt } = Astro.props;
 ---
 
 <div class="relative">
@@ -18,10 +19,10 @@ const { src } = Astro.props;
   >
     <img
       src={src}
-      alt="Diego Peralta"
+      alt={alt}
       width={500}
       height={500}
-      class="rounded-2xl w-full"
+      class="rounded-2xl w-full object-cover aspect-square"
     />
 
     <div
