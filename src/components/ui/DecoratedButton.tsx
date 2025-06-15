@@ -40,37 +40,3 @@ export const DecoratedButton = ({
     </Button>
   );
 };
-
-{
-  /* 
-  
-      <div class="absolute top-0 left-0 w-full h-full">
-              <div
-                class="absolute top-3 right-3 w-2 h-2 bg-emerald-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-              >
-              </div>
-              <div
-                class="absolute bottom-3 left-3 w-1 h-1 bg-blue-400 rounded-full opacity-40 group-hover:opacity-80 transition-opacity duration-300"
-              >
-              </div>
-            </div>
-            <div class="relative flex items-center justify-center space-x-3">
-              <div
-                class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-              >
-                <Mail
-                  className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
-                />
-              </div>
-              <span
-                class="text-zinc-200 group-hover:text-zinc-100 font-medium text-lg transition-colors duration-300"
-              >
-                Iniciar Conversación
-              </span>
-            </div>
-  
-  
-  
-  
-  */
-}
