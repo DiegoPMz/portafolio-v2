@@ -1,10 +1,11 @@
 import { Clock, Code2, Globe, Layers, Shield, Smartphone } from "lucide-react";
 import React from "react";
 
-interface MediaItem {
+export interface MediaItem {
   type: "image" | "video";
   src: string;
   title: string;
+  videoPrev?: string;
 }
 
 interface TechStackItem {
@@ -33,7 +34,14 @@ interface LearningCategory {
   insights: string[];
 }
 
-interface ProjectDetails {
+export interface ProjectStats {
+  performanceScore: string;
+  loadTime: string;
+  accessibility: string;
+  seoScore: string;
+}
+
+export interface ProjectDetails {
   title: string;
   description: string;
   projectType: string;
@@ -43,12 +51,13 @@ interface ProjectDetails {
   projectMetrics: ProjectMetric[];
   challenges: Challenge[];
   learnings: LearningCategory[];
+  projectStats: ProjectStats;
 }
 
 export const devLinks: ProjectDetails = {
   title: "DevLinks",
   description:
-    "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. La aplicación ofrece plantillas personalizables y una interfaz intuitiva, lo que permite a los usuarios diseñar páginas atractivas sin necesidad de conocimientos avanzados en desarrollo web",
+    "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. ",
   create_at: "2024",
   projectType: "",
 
@@ -60,8 +69,9 @@ export const devLinks: ProjectDetails = {
     },
     {
       type: "video",
-      src: "/placeholder.svg?height=600&width=1000&text=Demo Video",
+      src: "/demoTest.mp4",
       title: "Demo Interactivo",
+      videoPrev: "/videoTestPrevImg.png",
     },
     {
       type: "image",
@@ -168,4 +178,11 @@ export const devLinks: ProjectDetails = {
       ],
     },
   ],
+
+  projectStats: {
+    performanceScore: "100",
+    accessibility: "100",
+    loadTime: "1s",
+    seoScore: "99",
+  },
 };

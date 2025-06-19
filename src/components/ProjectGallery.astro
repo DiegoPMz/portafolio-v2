@@ -1,0 +1,33 @@
+---
+import type { ProjectDetails } from "@/data/projectDetails";
+import { GallerySidebarPanel } from "./GallerySidebarPanel";
+
+type Props = Pick<ProjectDetails, "mediaItems" | "projectStats">;
+
+const { mediaItems, projectStats } = Astro.props;
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 space-y-6">
+      <h2 class="text-5xl font-extralight tracking-tight">
+        <span class="text-zinc-200">Galería del</span>
+        <span
+          class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Proyecto
+        </span>
+      </h2>
+      <div
+        class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+      >
+      </div>
+    </div>
+
+    <GallerySidebarPanel
+      client:idle
+      mediaItems={mediaItems}
+      projectStatsValues={projectStats}
+    />
+  </div>
+</section>
