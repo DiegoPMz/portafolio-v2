@@ -41,10 +41,17 @@ export interface ProjectStats {
   seoScore: string;
 }
 
+export interface ProjectStoryData {
+  problem: string;
+  solution: string;
+  impact: string;
+}
+
 export interface ProjectDetails {
   title: string;
   description: string;
   projectType: string;
+  projectStory: ProjectStoryData;
   create_at: string;
   mediaItems: MediaItem[];
   techStack: TechStackItem[];
@@ -184,5 +191,14 @@ export const devLinks: ProjectDetails = {
     accessibility: "100",
     loadTime: "1s",
     seoScore: "99",
+  },
+
+  projectStory: {
+    problem:
+      "Muchos desarrolladores no tenían una forma centralizada y sencilla de compartir todos sus enlaces importantes.",
+    solution:
+      "Creé DevLinks, una plataforma simple y personalizable para agrupar y compartir enlaces relevantes en una sola página.",
+    impact:
+      "DevLinks mejora la presentación de perfiles y facilita el acceso a los recursos.",
   },
 };

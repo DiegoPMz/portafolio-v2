@@ -2,6 +2,7 @@
 import NavbarProjects from "@/components/NavbarProjects.astro";
 import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
+import ProjectStorySection from "@/components/ProjectStorySection.astro";
 import { devLinks } from "@/data/projectDetails";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -34,5 +35,8 @@ import Layout from "@/layouts/Layout.astro";
       mediaItems={devLinks.mediaItems}
       projectStats={devLinks.projectStats}
     />
+
+    {/* Project Story */}
+    <ProjectStorySection storyDetails={devLinks.projectStory} />
   </div>
 </Layout>
