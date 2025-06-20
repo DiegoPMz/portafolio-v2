@@ -3,14 +3,16 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
+  variant?: "outline";
 }
 
-const { className } = Astro.props;
+const { className, variant } = Astro.props;
 ---
 
 <div
   class={cn(
     "inline-flex items-center justify-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-emerald-500/20 border-emerald-500/30 text-emerald-400",
+    variant && "px-2.5 py-0.5 border-zinc-700/50 text-zinc-500 bg-transparent ",
     className && className,
   )}
 >

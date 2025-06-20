@@ -3,6 +3,7 @@ import NavbarProjects from "@/components/NavbarProjects.astro";
 import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
 import ProjectStorySection from "@/components/ProjectStorySection.astro";
+import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
 import { devLinks } from "@/data/projectDetails";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -38,5 +39,8 @@ import Layout from "@/layouts/Layout.astro";
 
     {/* Project Story */}
     <ProjectStorySection storyDetails={devLinks.projectStory} />
+
+    {/* Project Technologies */}
+    <ProjectTechnologiesSection techStack={devLinks.techStack} />
   </div>
 </Layout>

@@ -8,7 +8,7 @@ export interface MediaItem {
   videoPrev?: string;
 }
 
-interface TechStackItem {
+export interface TechStackItem {
   name: string;
   category: string;
   usage: string;

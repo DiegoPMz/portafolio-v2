@@ -1,7 +1,7 @@
 ---
 import type { ProjectStoryData } from "@/data/projectDetails";
 import { Lightbulb, Target, TrendingUp } from "lucide-react";
-import { ProjectStoryCard } from "./ProjectStoryCard";
+import { InfoCard } from "./InfoCard";
 
 interface Props {
   storyDetails: ProjectStoryData;
@@ -29,8 +29,8 @@ const { storyDetails } = Astro.props;
       </div>
 
       <div class="grid md:grid-cols-3 gap-12">
-        <ProjectStoryCard>
-          <ProjectStoryCard.StoryCardContent>
+        <InfoCard>
+          <InfoCard.Content>
             <div
               class="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mx-auto"
             >
@@ -42,11 +42,11 @@ const { storyDetails } = Astro.props;
                 {storyDetails.problem}
               </p>
             </div>
-          </ProjectStoryCard.StoryCardContent>
-        </ProjectStoryCard>
+          </InfoCard.Content>
+        </InfoCard>
 
-        <ProjectStoryCard>
-          <ProjectStoryCard.StoryCardContent>
+        <InfoCard>
+          <InfoCard.Content>
             <div
               class="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto"
             >
@@ -58,11 +58,11 @@ const { storyDetails } = Astro.props;
                 {storyDetails.solution}
               </p>
             </div>
-          </ProjectStoryCard.StoryCardContent>
-        </ProjectStoryCard>
+          </InfoCard.Content>
+        </InfoCard>
 
-        <ProjectStoryCard>
-          <ProjectStoryCard.StoryCardContent>
+        <InfoCard>
+          <InfoCard.Content>
             <div
               class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-2xl flex items-center justify-center mx-auto"
             >
@@ -74,8 +74,8 @@ const { storyDetails } = Astro.props;
                 {storyDetails.impact}
               </p>
             </div>
-          </ProjectStoryCard.StoryCardContent>
-        </ProjectStoryCard>
+          </InfoCard.Content>
+        </InfoCard>
       </div>
     </div>
   </div>

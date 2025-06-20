@@ -5,7 +5,7 @@ interface ProjectStoryCardContentProps {
   className?: string;
 }
 
-export const ProjectStoryCard = ({
+export const InfoCard = ({
   children,
   className,
 }: PropsWithChildren<{ className?: string }>) => {
@@ -22,7 +22,7 @@ export const ProjectStoryCard = ({
   );
 };
 
-const ProjectStoryCardContent = ({
+const InfoCardContent = ({
   children,
   className,
 }: PropsWithChildren<ProjectStoryCardContentProps>) => {
@@ -31,4 +31,4 @@ const ProjectStoryCardContent = ({
   );
 };
 
-ProjectStoryCard.StoryCardContent = ProjectStoryCardContent;
+InfoCard.Content = InfoCardContent;

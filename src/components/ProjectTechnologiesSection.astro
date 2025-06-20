@@ -1,0 +1,72 @@
+---
+import type { TechStackItem } from "@/data/projectDetails";
+import { cn } from "@/lib/utils";
+import { Code2 } from "lucide-react";
+import { InfoCard } from "./InfoCard";
+import Badge from "./ui/badge.astro";
+
+interface Props {
+  techStack: TechStackItem[];
+}
+
+const { techStack } = Astro.props;
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="space-y-16">
+      <div class="text-center space-y-6">
+        <h2 class="text-5xl font-extralight tracking-tight">
+          <span class="text-zinc-200">Stack</span>
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            Tecnológico
+          </span>
+        </h2>
+        <div
+          class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+        >
+        </div>
+        <p class="text-xl text-zinc-400 font-light max-w-3xl mx-auto">
+          Cada tecnología fue cuidadosamente seleccionada para crear una
+          experiencia óptima tanto para usuarios como para el desarrollo y
+          mantenimiento.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          techStack.map((tech) => (
+            <InfoCard className="bg-zinc-900/30 border-zinc-800/30 hover:bg-zinc-900/50 transition-all duration-500 group">
+              <InfoCard.Content className="text-left">
+                <div class="flex items-center space-x-4">
+                  <div
+                    class={cn(
+                      "w-12 h-12 bg-gradient-to-br rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                      tech.color,
+                    )}
+                  >
+                    <Code2 className="w-6 h-6 text-zinc-900" />
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-light text-zinc-100">
+                      {tech.name}
+                    </h3>
+                    <Badge
+                      variant="outline"
+                      className="border-zinc-700/50 text-zinc-500 "
+                    >
+                      {tech.category}
+                    </Badge>
+                  </div>
+                </div>
+                <p class="text-zinc-400 leading-relaxed">{tech.usage}</p>
+              </InfoCard.Content>
+            </InfoCard>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
