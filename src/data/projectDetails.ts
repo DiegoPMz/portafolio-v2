@@ -47,6 +47,21 @@ export interface ProjectStoryData {
   impact: string;
 }
 
+export interface ProjectRoleAndResp {
+  category: string;
+  responsibilities: string[];
+  icon: React.ElementType;
+  color: string;
+}
+
+export interface TimelinePhase {
+  phase: string;
+  duration: string;
+  description: string;
+  deliverables: string[];
+  color: string;
+}
+
 export interface ProjectDetails {
   title: string;
   description: string;
@@ -59,6 +74,8 @@ export interface ProjectDetails {
   challenges: Challenge[];
   learnings: LearningCategory[];
   projectStats: ProjectStats;
+  projectRolAndResp: ProjectRoleAndResp[];
+  timelinePhase: TimelinePhase[];
 }
 
 export const devLinks: ProjectDetails = {
@@ -201,4 +218,101 @@ export const devLinks: ProjectDetails = {
     impact:
       "DevLinks mejora la presentación de perfiles y facilita el acceso a los recursos.",
   },
+
+  projectRolAndResp: [
+    {
+      category: "Diseño & UX",
+      responsibilities: [
+        "Diseño y aplicación de paletas de colores consistentes",
+        "Sistema de diseño y componentes",
+      ],
+      icon: Smartphone,
+      color: "from-pink-500/20 to-rose-500/20",
+    },
+    {
+      category: "Frontend Development",
+      responsibilities: [
+        "Desarrollo con React y Next.js",
+        "Implementación responsive",
+        "Optimización de performance",
+        "Integración de APIs",
+      ],
+      icon: Globe,
+      color: "from-blue-500/20 to-cyan-500/20",
+    },
+    {
+      category: "Backend Development",
+      responsibilities: [
+        "Diseño de base de datos",
+        "APIs RESTful con Express",
+        "Autenticación y autorización",
+        "Integración con Cloud storage",
+      ],
+      icon: Layers,
+      color: "from-emerald-500/20 to-green-500/20",
+    },
+  ],
+
+  timelinePhase: [
+    {
+      phase: "Investigación & Análisis",
+      duration: "Semana 1",
+      description:
+        "Estudio de mercado, análisis de competencia y definición de requisitos funcionales",
+      deliverables: [
+        "User personas",
+        "Análisis competitivo",
+        "Requisitos técnicos",
+        "Arquitectura inicial",
+      ],
+      color: "from-red-400 to-pink-400",
+    },
+    {
+      phase: "Diseño & Prototipado",
+      duration: "Semanas 2-3",
+      description:
+        "Creación del sistema de diseño, wireframes y prototipos interactivos",
+      deliverables: [
+        "Wireframes",
+        "Sistema de diseño",
+        "Prototipos Figma",
+        "Guía de estilo",
+      ],
+      color: "from-orange-400 to-yellow-400",
+    },
+    {
+      phase: "Desarrollo MVP",
+      duration: "Semanas 4-7",
+      description:
+        "Implementación de funcionalidades core y estructura base de la aplicación",
+      deliverables: [
+        "Autenticación",
+        "Catálogo productos",
+        "Carrito compras",
+        "Panel admin",
+      ],
+      color: "from-green-400 to-emerald-400",
+    },
+    {
+      phase: "Integración & Testing",
+      duration: "Semanas 8-9",
+      description:
+        "Integración de servicios externos, testing exhaustivo y optimización",
+      deliverables: [
+        "Integración Stripe",
+        "Tests E2E",
+        "Optimización SEO",
+        "Performance tuning",
+      ],
+      color: "from-blue-400 to-cyan-400",
+    },
+    {
+      phase: "Lanzamiento & Monitoreo",
+      duration: "Semana 10",
+      description:
+        "Deployment en producción, configuración de monitoreo y documentación",
+      deliverables: ["CI/CD setup", "Deployment", "Analytics", "Documentación"],
+      color: "from-purple-400 to-violet-400",
+    },
+  ],
 };
