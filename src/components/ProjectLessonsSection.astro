@@ -1,0 +1,68 @@
+---
+import type { LearningCategory } from "@/data/projectDetails";
+import { cn } from "@/lib/utils";
+import { BookOpen } from "lucide-react";
+import { InfoCard } from "./InfoCard";
+
+interface Props {
+  learnings: LearningCategory[];
+}
+
+const { learnings } = Astro.props;
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="space-y-16">
+      <div class="text-center space-y-6">
+        <h2 class="text-5xl font-extralight tracking-tight">
+          <span class="text-zinc-200">Lecciones</span>
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            Aprendidas
+          </span>
+        </h2>
+        <div
+          class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+        >
+        </div>
+        <p class="text-xl text-zinc-400 font-light max-w-3xl mx-auto">
+          Cada proyecto es una oportunidad de crecimiento. Estas son las
+          lecciones más valiosas que obtuve.
+        </p>
+      </div>
+
+      <div
+        class={cn(
+          "flex flex-col flex-wrap items-center justify-center lg:flex-row gap-12",
+        )}
+      >
+        {
+          learnings.map((category) => (
+            <InfoCard className="max-w-[380px]">
+              <InfoCard.Content>
+                <div class="text-center space-y-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mx-auto">
+                    <BookOpen className="w-8 h-8 text-yellow-400" />
+                  </div>
+                  <h3 class="text-2xl font-light text-zinc-100">
+                    {category.category}
+                  </h3>
+                </div>
+                <div class="space-y-4">
+                  {category.insights.map((insight) => (
+                    <div class="flex items-start space-x-3">
+                      <div class="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0 mt-3" />
+                      <p class="text-zinc-400 leading-relaxed">{insight}</p>
+                    </div>
+                  ))}
+                </div>
+              </InfoCard.Content>
+            </InfoCard>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

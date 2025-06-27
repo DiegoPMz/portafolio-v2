@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter.astro";
 import NavbarProjects from "@/components/NavbarProjects.astro";
 import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
+import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
 import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
 import ProjectStorySection from "@/components/ProjectStorySection.astro";
 import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
@@ -49,6 +50,8 @@ import Layout from "@/layouts/Layout.astro";
       projectRoleAndResp={devLinks.projectRolAndResp}
       timelinePhase={devLinks.timelinePhase}
     />
+
+    <ProjectLessonsSection learnings={devLinks.learnings} />
 
     <HomeFooter />
   </div>

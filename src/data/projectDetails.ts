@@ -29,7 +29,7 @@ interface Challenge {
   icon: React.ComponentType;
 }
 
-interface LearningCategory {
+export interface LearningCategory {
   category: string;
   insights: string[];
 }
@@ -181,10 +181,6 @@ export const devLinks: ProjectDetails = {
     },
   ],
   learnings: [
-    {
-      category: "",
-      insights: ["", "", ""],
-    },
     {
       category: "UX/UI",
       insights: [
