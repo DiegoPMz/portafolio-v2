@@ -1,6 +1,7 @@
 ---
 import HomeFooter from "@/components/HomeFooter.astro";
 import NavbarProjects from "@/components/NavbarProjects.astro";
+import ProjectChallengesSection from "@/components/ProjectChallengesSection.astro";
 import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
 import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
@@ -17,42 +18,32 @@ import Layout from "@/layouts/Layout.astro";
   >
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
       <div
-        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-radial from-blue-500/8 via-transparent to-transparent blur-3xl"
+        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-radial from-purple-500/9 via-transparent to-transparent blur-3xl"
       >
       </div>
       <div
-        class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-radial from-purple-500/8 via-transparent to-transparent blur-3xl"
+        class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-radial from-fuchsia-500/9 via-transparent to-transparent blur-3xl"
       >
       </div>
     </div>
 
     <NavbarProjects />
-
-    {/* Hero Section */}
     <ProjectHeroSection
       metrics={devLinks.projectMetrics}
       description={devLinks.description}
     />
-
-    {/* Project Gallery */}
     <ProjectGallery
       mediaItems={devLinks.mediaItems}
       projectStats={devLinks.projectStats}
     />
-
-    {/* Project Story */}
     <ProjectStorySection storyDetails={devLinks.projectStory} />
-
-    {/* Project Technologies */}
     <ProjectTechnologiesSection techStack={devLinks.techStack} />
-
     <ProjectRolAndProcessSection
       projectRoleAndResp={devLinks.projectRolAndResp}
       timelinePhase={devLinks.timelinePhase}
     />
-
+    <ProjectChallengesSection challenges={devLinks.challenges} />
     <ProjectLessonsSection learnings={devLinks.learnings} />
-
     <HomeFooter />
   </div>
 </Layout>
