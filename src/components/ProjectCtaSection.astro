@@ -1,0 +1,53 @@
+---
+import { ExternalLink, Github, Mail } from "lucide-react";
+import { Button } from "./ui/button";
+import { GradientButton } from "./ui/GradientButton";
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center space-y-12">
+      <div class="space-y-6">
+        <h2 class="text-5xl font-extralight tracking-tight">
+          <span class="text-zinc-200">¿Quieres saber</span>
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >más?</span
+          >
+        </h2>
+        <div
+          class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+        >
+        </div>
+        <p
+          class="text-xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed"
+        >
+          Este proyecto representa mi capacidad para llevar una idea desde el
+          concepto hasta la producción. Si te interesa conocer más detalles
+          técnicos o discutir sobre desarrollo web, ¡hablemos!
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <div class="w-full">
+          <GradientButton size="sm" className="w-full">
+            <ExternalLink className="w-5 h-5 mr-2" />
+            Explorar Demo
+          </GradientButton>
+        </div>
+        <div class="w-full">
+          <Button size={"xs"} className="w-full">
+            <Github className="w-5 h-5 mr-2" />
+            Ver Código
+          </Button>
+        </div>
+        <div class="w-full">
+          <Button size={"xs"} className="w-full">
+            <Mail className="w-5 h-5 mr-2" />
+            Contactar
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

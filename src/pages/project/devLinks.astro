@@ -2,6 +2,7 @@
 import HomeFooter from "@/components/HomeFooter.astro";
 import NavbarProjects from "@/components/NavbarProjects.astro";
 import ProjectChallengesSection from "@/components/ProjectChallengesSection.astro";
+import ProjectCtaSection from "@/components/ProjectCtaSection.astro";
 import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
 import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
@@ -44,6 +45,7 @@ import Layout from "@/layouts/Layout.astro";
     />
     <ProjectChallengesSection challenges={devLinks.challenges} />
     <ProjectLessonsSection learnings={devLinks.learnings} />
+    <ProjectCtaSection />
     <HomeFooter />
   </div>
 </Layout>
