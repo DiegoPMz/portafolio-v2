@@ -9,8 +9,17 @@ import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
 import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
 import ProjectStorySection from "@/components/ProjectStorySection.astro";
 import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
-import { devLinks } from "@/data/projectDetails";
+import { projectsData } from "@/data/projectDetails";
 import Layout from "@/layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return projectsData.map((project) => ({
+    params: { projectName: project.title },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
 ---
 
 <Layout>
@@ -29,22 +38,19 @@ import Layout from "@/layouts/Layout.astro";
     </div>
 
     <NavbarProjects />
-    <ProjectHeroSection
-      metrics={devLinks.projectMetrics}
-      description={devLinks.description}
-    />
+    <ProjectHeroSection projectDetails={project} />
     <ProjectGallery
-      mediaItems={devLinks.mediaItems}
-      projectStats={devLinks.projectStats}
+      mediaItems={project.mediaItems}
+      projectStats={project.projectStats}
     />
-    <ProjectStorySection storyDetails={devLinks.projectStory} />
-    <ProjectTechnologiesSection techStack={devLinks.techStack} />
+    <ProjectStorySection storyDetails={project.projectStory} />
+    <ProjectTechnologiesSection techStack={project.techStack} />
     <ProjectRolAndProcessSection
-      projectRoleAndResp={devLinks.projectRolAndResp}
-      timelinePhase={devLinks.timelinePhase}
+      projectRoleAndResp={project.projectRolAndResp}
+      timelinePhase={project.timelinePhase}
     />
-    <ProjectChallengesSection challenges={devLinks.challenges} />
-    <ProjectLessonsSection learnings={devLinks.learnings} />
+    <ProjectChallengesSection challenges={project.challenges} />
+    <ProjectLessonsSection learnings={project.learnings} />
     <ProjectCtaSection />
     <HomeFooter />
   </div>
