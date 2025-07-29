@@ -1,6 +1,10 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
 
+import previewDevLinks from "@/assets/home/previewDevLinks.webp";
+import previewKanbanApp from "@/assets/home/previewKanbanApp.webp";
+import previewWITW from "@/assets/home/previewWITW.webp";
+
 const projects = [
   {
     title: "DevLinks",
@@ -16,7 +20,7 @@ const projects = [
       "Express",
       "MongoDb",
     ],
-    image: "/mockupDevlinks.png",
+    image: previewDevLinks.src,
     github: "https://github.com/DiegoPMz/devlink-frontend",
     demo: "https://devlink-frontend.vercel.app/",
     category: "Web Application",
@@ -29,7 +33,7 @@ const projects = [
     description:
       "Una app minimalista para gestionar tareas al estilo Kanban. Sin complicaciones: solo tableros, tarjetas y arrastrar/soltar. Perfecta para quienes aman la productividad sin distracciones.",
     technologies: ["React", "Vite", "Dnd kit"],
-    image: "/placeholder.svg?height=500&width=800",
+    image: previewKanbanApp.src,
     github: "https://github.com/DiegoPMz/KanbanApp",
     demo: "https://kanban-app-nine-xi.vercel.app/",
     category: "Web Application",
@@ -42,7 +46,7 @@ const projects = [
     description:
       "Fuente de consulta organizada con información geográfica y política actualizada. Contiene: monedas, dominios web oficiales, divisiones administrativas y datos clave de cada país. Perfecta para proyectos académicos o aprendizaje.",
     technologies: ["React", "Vite", "React router", "Api-countries"],
-    image: "/placeholder.svg?height=500&width=800",
+    image: previewWITW.src,
     github: "https://github.com/DiegoPMz/where-in-the-world",
     demo: "https://where-in-the-world-ashy.vercel.app/",
     category: "Reference Web App",

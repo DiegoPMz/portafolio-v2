@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { ExternalLink, Github } from "lucide-react";
 import ProjectBadge from "./ProjectBadge.astro";
+import { DecoratedButton } from "./ui/DecoratedButton";
 import { Button } from "./ui/button";
 
 interface ProjectDetails {
@@ -44,7 +45,7 @@ const { position, project } = Astro.props;
         <img
           src={project.image || "/placeholder.svg"}
           alt={project.title}
-          class="w-full h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-1000"
+          class="w-full h-60 md:h-[400px] lg:h-88 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-1000"
         />
 
         {/* Floating badges */}
@@ -133,23 +134,11 @@ const { position, project } = Astro.props;
             </div>
           </Button>
 
-          <button
-            class="cursor-pointer group relative flex-1 bg-zinc-900/80 hover:bg-zinc-800/80 border-2 border-zinc-700/50 hover:border-zinc-500/70 rounded-2xl px-8 py-4 transition-all duration-500 overflow-hidden backdrop-blur-sm"
+          <DecoratedButton
+            size="xs"
+            circleOne="top-2 right-2 w-2 h-2 bg-emerald-400"
+            circleTwo="bottom-2 left-2 w-1 h-1 bg-blue-400"
           >
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-zinc-800/20 via-zinc-700/20 to-zinc-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            >
-            </div>
-            <div class="absolute top-0 left-0 w-full h-full">
-              <div
-                class="absolute top-2 right-2 w-2 h-2 bg-emerald-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-              >
-              </div>
-              <div
-                class="absolute bottom-2 left-2 w-1 h-1 bg-blue-400 rounded-full opacity-40 group-hover:opacity-80 transition-opacity duration-300"
-              >
-              </div>
-            </div>
             <div class="relative flex items-center justify-center space-x-3">
               <div
                 class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
@@ -159,12 +148,12 @@ const { position, project } = Astro.props;
                 />
               </div>
               <span
-                class="text-zinc-200 group-hover:text-zinc-100 font-medium transition-colors duration-300"
+                class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
               >
                 Ver Proyecto
               </span>
             </div>
-          </button>
+          </DecoratedButton>
         </div>
       </div>
     </div>

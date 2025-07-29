@@ -10,6 +10,7 @@ interface DecoratedButtonProps {
   circleOne?: string;
   circleTwo?: string;
   variants?: ButtonVariants;
+  size?: "sm" | "xs";
 }
 
 export const DecoratedButton = ({
@@ -18,9 +19,14 @@ export const DecoratedButton = ({
   circleOne,
   circleTwo,
   variants,
+  size,
 }: PropsWithChildren<DecoratedButtonProps>) => {
   return (
-    <Button variant={variants} className={cn("border-2", className)}>
+    <Button
+      variant={variants}
+      size={size}
+      className={cn("border-2", className)}
+    >
       <div className="absolute top-0 left-0 w-full h-full ">
         <div
           className={cn(

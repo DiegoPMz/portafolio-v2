@@ -1,9 +1,11 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import { Award } from "lucide-react";
 
 interface Props {
-  src: string;
-  alt?: string;
+  src: ImageMetadata;
+  alt: string;
 }
 
 const { src, alt } = Astro.props;
@@ -17,12 +19,13 @@ const { src, alt } = Astro.props;
   <div
     class="relative bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm rounded-3xl p-2 border border-zinc-700/30"
   >
-    <img
+    <Image
       src={src}
       alt={alt}
+      loading={"eager"}
       width={500}
       height={500}
-      class="rounded-2xl w-full object-cover aspect-square"
+      class={"rounded-2xl w-full object-cover aspect-square"}
     />
 
     <div
