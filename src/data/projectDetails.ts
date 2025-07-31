@@ -81,6 +81,11 @@ export interface TimelinePhase {
   color: string;
 }
 
+export interface ProjectLinks {
+  github: string;
+  live: string;
+}
+
 export interface ProjectDetails {
   title: string;
   description: string;
@@ -95,6 +100,7 @@ export interface ProjectDetails {
   projectStats: ProjectStats;
   projectRolAndResp: ProjectRoleAndResp[];
   timelinePhase: TimelinePhase[];
+  projectLinks: ProjectLinks;
 }
 
 export const projectsData: ProjectDetails[] = [
@@ -104,6 +110,11 @@ export const projectsData: ProjectDetails[] = [
       "Aplicación Full-Stack que permite a desarrolladores crear páginas de enlaces personalizadas para centralizar su presencia en línea, con plantillas personalizables e interfaz intuitiva.",
     create_at: "2024",
     projectType: "Full-Stack",
+
+    projectLinks: {
+      github: "https://github.com/DiegoPMz/devlink-frontend",
+      live: "https://devlink-frontend.vercel.app",
+    },
 
     mediaItems: [
       {
@@ -329,6 +340,11 @@ export const projectsData: ProjectDetails[] = [
     create_at: "2023",
     projectType: "Frontend",
 
+    projectLinks: {
+      github: "https://github.com/DiegoPMz/KanbanApp",
+      live: "https://kanban-app-nine-xi.vercel.app/",
+    },
+
     mediaItems: [
       {
         type: "image",
@@ -543,6 +559,10 @@ export const projectsData: ProjectDetails[] = [
       "Aplicación frontend que proporciona información detallada sobre todos los países del mundo, permitiendo búsqueda por nombre o región, con datos como población, capital y características geográficas.",
     create_at: "2023",
     projectType: "Frontend",
+    projectLinks: {
+      github: "https://github.com/DiegoPMz/where-in-the-world",
+      live: "https://where-in-the-world-ashy.vercel.app/",
+    },
 
     mediaItems: [
       {

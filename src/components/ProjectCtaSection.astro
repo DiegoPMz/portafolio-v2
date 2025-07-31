@@ -1,7 +1,14 @@
 ---
+import type { ProjectLinks } from "@/data/projectDetails";
 import { ExternalLink, Github, Mail } from "lucide-react";
-import { Button } from "./ui/button";
-import { GradientButton } from "./ui/GradientButton";
+import { DecoratedLink } from "./ui/DecoratedLink";
+import { GradientLink } from "./ui/GradientLink";
+
+interface Props {
+  projectLinks: ProjectLinks;
+}
+
+const { projectLinks } = Astro.props;
 ---
 
 <section class="relative py-20 px-8">
@@ -30,22 +37,32 @@ import { GradientButton } from "./ui/GradientButton";
 
       <div class="flex flex-col sm:flex-row gap-6 justify-center">
         <div class="w-full">
-          <GradientButton size="sm" className="w-full">
+          <GradientLink
+            size="sm"
+            className="w-full"
+            href={projectLinks.live}
+            target="_blank"
+          >
             <ExternalLink className="w-5 h-5 mr-2" />
             Explorar Demo
-          </GradientButton>
+          </GradientLink>
         </div>
         <div class="w-full">
-          <Button size={"xs"} className="w-full">
+          <DecoratedLink
+            size={"compact"}
+            className="w-full"
+            href={projectLinks.github}
+            target="_blank"
+          >
             <Github className="w-5 h-5 mr-2" />
             Ver Código
-          </Button>
+          </DecoratedLink>
         </div>
         <div class="w-full">
-          <Button size={"xs"} className="w-full">
+          <DecoratedLink size={"compact"} className="w-full" href="#">
             <Mail className="w-5 h-5 mr-2" />
             Contactar
-          </Button>
+          </DecoratedLink>
         </div>
       </div>
     </div>

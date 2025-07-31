@@ -1,6 +1,6 @@
 ---
 import { Mail, Star } from "lucide-react";
-import { DecoratedButton } from "./ui/DecoratedButton";
+import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
 ---
 
 <section id="contact" class="relative py-16 md:py-32 px-4 md:px-8">
@@ -29,9 +29,15 @@ import { DecoratedButton } from "./ui/DecoratedButton";
             ¿Tienes un proyecto ambicioso en mente?
           </p>
         </div>
-
         <div class="flex flex-col sm:flex-row gap-8 justify-center pt-12">
-          <DecoratedButton className="md:max-w-fit">
+          <DecoratedLink className="md:max-w-fit" href="#">
+            <AccentDotsOverlay>
+              <AccentDotsOverlay.AccentDot className="top-3 left-3" />
+              <AccentDotsOverlay.AccentDot
+                className="bottom-3 right-3 w-1 h-1 bg-blue-400"
+              />
+            </AccentDotsOverlay>
+
             <div
               class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
             >
@@ -44,14 +50,17 @@ import { DecoratedButton } from "./ui/DecoratedButton";
             >
               Iniciar Conversación
             </span>
-          </DecoratedButton>
+          </DecoratedLink>
 
-          <DecoratedButton
-            variants={"blue"}
-            className="flex-1 md:max-w-fit"
-            circleOne="bottom-3 right-3 bg-purple-400"
-            circleTwo="top-3 left-3 bg-purple-400"
-          >
+          <DecoratedLink variant={"blue"} href="cv">
+            <AccentDotsOverlay>
+              <AccentDotsOverlay.AccentDot
+                className="top-3 left-3 bg-purple-400  h-1 w-1"
+              />
+              <AccentDotsOverlay.AccentDot
+                className="bottom-3 right-3 bg-purple-400"
+              />
+            </AccentDotsOverlay>
             <div
               class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-400/20 to-purple-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
             >
@@ -64,7 +73,7 @@ import { DecoratedButton } from "./ui/DecoratedButton";
             >
               Ver CV Online
             </span>
-          </DecoratedButton>
+          </DecoratedLink>
         </div>
       </div>
     </div>

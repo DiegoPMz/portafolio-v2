@@ -1,7 +1,14 @@
 ---
+import type { ProjectLinks } from "@/data/projectDetails";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { Button } from "./ui/button";
-import { GradientButton } from "./ui/GradientButton";
+import { DecoratedLink } from "./ui/DecoratedLink";
+import { GradientLink } from "./ui/GradientLink";
+
+interface Props {
+  projectLinks: ProjectLinks;
+}
+
+const { projectLinks } = Astro.props;
 ---
 
 <nav
@@ -23,14 +30,19 @@ import { GradientButton } from "./ui/GradientButton";
       </a>
 
       <div class="flex items-center space-x-4">
-        <Button size="xs">
+        <DecoratedLink
+          size="compact"
+          className="w-fit"
+          href={projectLinks.live}
+          target="_blank"
+        >
           <Github className="w-4 h-4 min-w-4 min-h-4 m-0 md:mr-3" />
           <span class="hidden md:inline"> Código </span>
-        </Button>
-        <GradientButton size="sm">
+        </DecoratedLink>
+        <GradientLink size="sm" href={projectLinks.live} target="_blank">
           <ExternalLink className="w-4 h-4 mr-2" />
           Demo Live
-        </GradientButton>
+        </GradientLink>
       </div>
     </div>
   </div>

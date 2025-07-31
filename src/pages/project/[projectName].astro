@@ -37,7 +37,7 @@ const project = Astro.props;
       </div>
     </div>
 
-    <NavbarProjects />
+    <NavbarProjects projectLinks={project.projectLinks} />
     <ProjectHeroSection projectDetails={project} />
     <ProjectGallery
       mediaItems={project.mediaItems}
@@ -51,7 +51,7 @@ const project = Astro.props;
     />
     <ProjectChallengesSection challenges={project.challenges} />
     <ProjectLessonsSection learnings={project.learnings} />
-    <ProjectCtaSection />
+    <ProjectCtaSection projectLinks={project.projectLinks} />
     <HomeFooter />
   </div>
 </Layout>

@@ -1,9 +1,8 @@
 ---
 import { cn } from "@/lib/utils";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
 import ProjectBadge from "./ProjectBadge.astro";
-import { DecoratedButton } from "./ui/DecoratedButton";
-import { Button } from "./ui/button";
+import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
 
 interface ProjectDetails {
   image: string;
@@ -121,39 +120,33 @@ const { position, project } = Astro.props;
 
         {/* Action Buttons */}
         <div class="flex gap-4 pt-8">
-          <Button size={"sm"}>
+          <DecoratedLink size={"sm"} target="_blank" href="#">
             <div class="flex flex-col items-center md:flex-row md:space-x-3">
-              <Github
+              <ExternalLink
                 className="w-5 h-5 text-zinc-400 group-hover:text-zinc-200 transition-colors duration-300 group-hover:rotate-12"
               />
               <span
                 class="text-zinc-300 group-hover:text-zinc-100 font-light transition-colors duration-300"
               >
-                Código Fuente
+                Ir a la App
               </span>
             </div>
-          </Button>
-
-          <DecoratedButton
-            size="xs"
-            circleOne="top-2 right-2 w-2 h-2 bg-emerald-400"
-            circleTwo="bottom-2 left-2 w-1 h-1 bg-blue-400"
-          >
-            <div class="relative flex items-center justify-center space-x-3">
-              <div
-                class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-              >
-                <ExternalLink
-                  className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
-                />
-              </div>
-              <span
-                class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
-              >
-                Ver Proyecto
-              </span>
+          </DecoratedLink>
+          <DecoratedLink size={"xs"} href=`project/${project.title}`>
+            <AccentDotsOverlay />
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+            >
+              <FileText
+                className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
+              />
             </div>
-          </DecoratedButton>
+            <span
+              class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
+            >
+              Ver Detalles
+            </span>
+          </DecoratedLink>
         </div>
       </div>
     </div>
