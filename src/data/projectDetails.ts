@@ -20,6 +20,13 @@ import {
 } from "lucide-react";
 import React from "react";
 
+import devlinksBrowser from "@/assets/devlinks/devlinksBrowser.webp";
+import devlinksDVideo from "@/assets/devlinks/devlinksDVideo.webm";
+import devlinksStaticPhones from "@/assets/devlinks/devlinksStaticPhones.webp";
+import videoPhone from "@/assets/devlinks/videoPhone.webm";
+import videoPhone2 from "@/assets/devlinks/videoPhone2.webm";
+import videoPhone3 from "@/assets/devlinks/videoPhone3.webm";
+
 export interface MediaItem {
   type: "image" | "video";
   src: string;
@@ -119,42 +126,36 @@ export const projectsData: ProjectDetails[] = [
     mediaItems: [
       {
         type: "image",
-        src: "headerImage",
-        title: "Vista principal en laptop",
-      },
-      {
-        type: "image",
-        src: "staticMobilesMock",
-        title: "Versión móvil",
-      },
-      {
-        type: "image",
-        src: "browserMock",
+        src: devlinksBrowser.src,
         title: "Versión escritorio",
       },
       {
         type: "video",
-        src: "video1",
-        title: "Demo funcionalidad principal",
+        src: devlinksDVideo,
+        title: "Interacción escritorio",
+      },
+      {
+        type: "image",
+        src: devlinksStaticPhones.src,
+        title: "Vista móvil - Temas",
+      },
+      {
+        type: "video",
+        src: videoPhone,
+        title: "Interacción móvil 1",
         videoPrev: "/video-preview.jpg",
       },
       {
         type: "video",
-        src: "videoPhone1",
-        title: "Interacción móvil 1",
+        src: videoPhone2,
+        title: "Interacción móvil 2",
         videoPrev: "/mobile-preview1.jpg",
       },
       {
         type: "video",
-        src: "videoPhone2",
-        title: "Interacción móvil 2",
-        videoPrev: "/mobile-preview2.jpg",
-      },
-      {
-        type: "video",
-        src: "videoPhone3",
+        src: videoPhone3,
         title: "Interacción móvil 3",
-        videoPrev: "/mobile-preview3.jpg",
+        videoPrev: "/mobile-preview2.jpg",
       },
     ],
 

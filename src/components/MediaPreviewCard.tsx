@@ -1,5 +1,5 @@
 import type { MediaItem } from "@/data/projectDetails";
-import { useState, type PropsWithChildren } from "react";
+import { useEffect, useState, type PropsWithChildren } from "react";
 import { MediaPlayOverlay } from "./ui/MediaPlayOverlay";
 
 interface MediaPreviewCardProps {
@@ -16,32 +16,21 @@ export const MediaPreviewCard = ({
 }: PropsWithChildren<MediaPreviewCardProps>) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
 
-  const handleVideoToggle = (
-    e: React.MouseEvent<HTMLVideoElement, MouseEvent>,
-  ) => {
-    const videoEl = e.currentTarget;
-    if (!videoEl) return;
+  useEffect(() => {
+    if (!src || !isVideoPlaying) return;
 
-    if (!isVideoPlaying) {
-      videoEl.play();
-    } else {
-      videoEl.pause();
-    }
-
-    setIsVideoPlaying(!isVideoPlaying);
-  };
+    setIsVideoPlaying(false);
+  }, [src]);
 
   return (
     <div className="relative group">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-violet-500/20 to-purple-500/20 blur-2xl rounded-3xl group-hover:blur-xl transition-all duration-500"></div>
-      <div className="relative bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm rounded-3xl p-4 border border-zinc-700/30 group-hover:border-zinc-600/50 transition-all duration-500">
+      <div className="relative bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm rounded-3xl p-2 sm:p-4 border border-zinc-700/30 group-hover:border-zinc-600/50 transition-all duration-500 w-full aspect-video lg:aspect-4-3 ">
         {mediaType === "image" ? (
           <img
             src={src}
             alt={alt}
-            width={800}
-            height={500}
-            className="rounded-2xl w-full group-hover:scale-[1.02] transition-transform duration-700"
+            className="rounded-2xl w-full h-full group-hover:scale-[1.02] transition-transform object-cover duration-700"
           />
         ) : (
           <>
@@ -49,11 +38,11 @@ export const MediaPreviewCard = ({
               src={src}
               muted
               loop
-              width={800}
-              height={500}
+              controls
               aria-label={alt}
-              className="rounded-2xl w-full group-hover:scale-[1.02] transition-transform duration-700 cursor-pointer"
-              onClick={handleVideoToggle}
+              className="rounded-2xl w-full h-full group-hover:scale-[1.02] transition-transform duration-700 cursor-pointer"
+              onPlay={() => setIsVideoPlaying(true)}
+              onPause={() => setIsVideoPlaying(false)}
             />
 
             {!isVideoPlaying && (
@@ -64,14 +53,16 @@ export const MediaPreviewCard = ({
           </>
         )}
 
-        <div className="absolute bottom-6 left-6 right-6">
-          <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-6 py-4">
-            <h3 className="text-xl font-light text-zinc-100">{children}</h3>
-            <p className="text-zinc-400 text-sm mt-1">
-              Click para ver en detalle
-            </p>
+        {!isVideoPlaying && (
+          <div className="absolute bottom-6 left-6 right-6 hidden lg:block">
+            <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-6 py-4">
+              <h3 className="text-xl font-light text-zinc-100">{children}</h3>
+              <p className="text-zinc-400 text-sm mt-1">
+                Click para ver en detalle
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
