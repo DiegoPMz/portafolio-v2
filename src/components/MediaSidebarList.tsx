@@ -36,7 +36,7 @@ export const MediaSidebarList = ({
                     width={64}
                     height={48}
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
 
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -50,7 +50,7 @@ export const MediaSidebarList = ({
                   width={64}
                   height={48}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full  h-full object-cover"
                 />
               )}
             </div>

@@ -1,6 +1,5 @@
 import type { MediaItem } from "@/data/projectDetails";
 import { useEffect, useState, type PropsWithChildren } from "react";
-import { MediaPlayOverlay } from "./ui/MediaPlayOverlay";
 
 interface MediaPreviewCardProps {
   src: string;
@@ -38,22 +37,22 @@ export const MediaPreviewCard = ({
               src={src}
               muted
               loop
-              controls
+              // controls
               aria-label={alt}
               className="rounded-2xl w-full h-full group-hover:scale-[1.02] transition-transform duration-700 cursor-pointer"
               onPlay={() => setIsVideoPlaying(true)}
               onPause={() => setIsVideoPlaying(false)}
             />
 
-            {!isVideoPlaying && (
+            {/* {!isVideoPlaying && (
               <div className="pointer-events-none absolute inset-0 ">
                 <MediaPlayOverlay />
               </div>
-            )}
+            )} */}
           </>
         )}
 
-        {!isVideoPlaying && (
+        {/* {!isVideoPlaying && (
           <div className="absolute bottom-6 left-6 right-6 hidden lg:block">
             <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-6 py-4">
               <h3 className="text-xl font-light text-zinc-100">{children}</h3>
@@ -62,7 +61,7 @@ export const MediaPreviewCard = ({
               </p>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
