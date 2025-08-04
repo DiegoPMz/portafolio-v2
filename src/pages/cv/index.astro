@@ -1,0 +1,171 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div #test class="bg-white text-gray-800 max-w-4xl mx-auto p-6 print:p-0">
+    <!-- Encabezado -->
+    <header class="mb-6">
+      <h1 class="text-3xl text-center font-bold uppercase mb-1">
+        Diego Peralta Martinez
+      </h1>
+      <div class="h-[1px] w-full bg-black mb-6"></div>
+      <ul class="flex list-disc list-inside flex-wrap gap-x-4 text-sm">
+        <li>CDMX</li>
+        <li>5583126598</li>
+        <li>diego.pmz08@gmail.com</li>
+        <li>Portafolio Personal</li>
+      </ul>
+    </header>
+
+    <!-- Introducción -->
+    <p class="mb-6 text-justify">
+      Desarrollador Full-Stack Jr. con experiencia tanto en frontend como
+      backend. Autodidacta y en constante aprendizaje, apasionado por crear
+      soluciones tecnológicas completas. Capacidad para trabajar en todo el
+      ciclo de desarrollo, desde la implementación de interfaces de usuario
+      hasta la creación de APIs robustas.
+    </p>
+
+    <div class="h-[1px] w-full bg-black mb-6"></div>
+
+    <!-- Tecnologías -->
+    <section class="mb-6">
+      <h2 class="text-xl font-bold uppercase mb-3">Tecnologías</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="skill-category">
+          <h3 class="font-semibold">Frontend:</h3>
+          <ul class="list-disc list-inside pl-2">
+            <li>React, Angular, TypeScript</li>
+            <li>Zustand, Tailwind, Vite</li>
+            <li>Sass, Jest, Zod</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="font-semibold">Backend:</h3>
+          <ul class="list-disc list-inside pl-2">
+            <li>Node.js, Express, Java</li>
+            <li>Spring boot, JPA/Hibernate</li>
+            <li>MVC, JWT, Mongoose</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="font-semibold">Bases de Datos:</h3>
+          <ul class="list-disc list-inside pl-2">
+            <li>MySQL, MongoDB</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3 class="font-semibold">Herramientas de desarrollo:</h3>
+          <ul class="list-disc list-inside pl-2">
+            <li>Git, Github</li>
+            <li>VsCode, IntelliJ</li>
+            <li>Insomnia, Postman</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-[1px] w-full bg-black mb-6"></div>
+
+    <!-- Formación Académica -->
+    <section class="mb-6">
+      <h2 class="text-xl font-bold uppercase mb-3">Formación Académica</h2>
+      <div class="flex justify-between">
+        <span class="font-medium w-[50%]">Ing. en Sistemas Computacionales</span
+        >
+        <span class="text-gray-600 w-[40%]">En curso 2025</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="font-medium w-[50%]"
+          >Escuela Nacional Preparatoria No. 3</span
+        >
+        <span class="text-gray-600 w-[40%]">2018 - 2021</span>
+      </div>
+    </section>
+
+    <div class="h-[1px] w-full bg-black mb-6"></div>
+
+    <!-- Proyectos Personales -->
+    <section class="mb-6">
+      <h2 class="text-xl font-bold uppercase mb-3">Proyectos Personales</h2>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Share Link App</h3>
+        <ul class="list-disc list-inside pl-2 space-y-1">
+          <li>
+            <span class="font-medium">Stack completo:</span> React (Frontend), Node.js/Express
+            (Backend), MongoDB (Base de datos)
+          </li>
+          <li>
+            <span class="font-medium">Seguridad avanzada:</span> Implementación de
+            JWT con sistema de whitelist y refresh tokens
+          </li>
+          <li>
+            <span class="font-medium">Gestión de imágenes:</span> Integración con
+            Cloudinary (upload, compresión y CDN) mediante API REST
+          </li>
+          <li>
+            <span class="font-medium">Flujo de autenticación:</span> Sistema completo
+            con registro, login, persistencia de sesión y middlewares de autorización
+          </li>
+          <li>
+            <span class="font-medium">Validación robusta:</span> Esquemas con Zod
+            en frontend y backend para integridad de datos
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Trello App</h3>
+        <ul class="list-disc list-inside pl-2 space-y-1">
+          <li>
+            Desarrollé una Trello app en React con un enfoque minimalista,
+            utilizando localStorage para almacenar tareas y tableros de manera
+            local.
+          </li>
+          <li>
+            Creé un store global utilizando useReducer y useContext para manejar
+            el estado de la aplicación de forma centralizada.
+          </li>
+          <li>
+            Diseñé componentes reutilizables para mejorar la modularidad y
+            encapsulamiento de responsabilidades.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="h-[1px] w-full bg-black mb-6"></div>
+
+    <!-- Skills -->
+    <section>
+      <h2 class="text-xl font-bold uppercase mb-3">Skills</h2>
+      <ul class="flex flex-wrap gap-1 list-disc list-inside">
+        <li class="px-3 py-1">Resolución de problemas</li>
+        <li class="px-3 py-1">Formación continua</li>
+        <li class="px-3 py-1">Agilidad con los resultados</li>
+        <li class="px-3 py-1">Disponibilidad total</li>
+      </ul>
+    </section>
+
+    <!-- Botón de descarga (solo visible en web) -->
+    <div
+      class="mt-8 text-center flex flex-col items-center md:flex-row md:justify-center gap-3 print:hidden"
+    >
+      <a
+        href="/"
+        class="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded text-white font-medium transform shadow-md hover:shadow-lg transition-all duration-500"
+      >
+        ← Volver al Portafolio
+      </a>
+      <a
+        href="mockCv.pdf"
+        download="Diego_Peralta_CV.pdf"
+        class="inline-block px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition"
+      >
+        Descargar versión PDF
+      </a>
+    </div>
+  </div>
+</Layout>
