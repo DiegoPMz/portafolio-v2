@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <div #test class="bg-white text-gray-800 max-w-4xl mx-auto p-6 print:p-0">
+  <div class="bg-white text-gray-800 max-w-4xl mx-auto p-6 print:p-0">
     <!-- Encabezado -->
     <header class="mb-6">
       <h1 class="text-3xl text-center font-bold uppercase mb-1">
@@ -33,7 +33,7 @@ import Layout from "@/layouts/Layout.astro";
     <section class="mb-6">
       <h2 class="text-xl font-bold uppercase mb-3">Tecnologías</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="skill-category">
+        <div>
           <h3 class="font-semibold">Frontend:</h3>
           <ul class="list-disc list-inside pl-2">
             <li>React, Angular, TypeScript</li>
@@ -41,7 +41,7 @@ import Layout from "@/layouts/Layout.astro";
             <li>Sass, Jest, Zod</li>
           </ul>
         </div>
-        <div class="skill-category">
+        <div>
           <h3 class="font-semibold">Backend:</h3>
           <ul class="list-disc list-inside pl-2">
             <li>Node.js, Express, Java</li>
@@ -49,13 +49,13 @@ import Layout from "@/layouts/Layout.astro";
             <li>MVC, JWT, Mongoose</li>
           </ul>
         </div>
-        <div class="skill-category">
+        <div>
           <h3 class="font-semibold">Bases de Datos:</h3>
           <ul class="list-disc list-inside pl-2">
             <li>MySQL, MongoDB</li>
           </ul>
         </div>
-        <div class="skill-category">
+        <div>
           <h3 class="font-semibold">Herramientas de desarrollo:</h3>
           <ul class="list-disc list-inside pl-2">
             <li>Git, Github</li>

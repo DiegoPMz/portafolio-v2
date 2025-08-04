@@ -90,7 +90,7 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-6 pb-4 border-t border-zinc-800/30">
             <div className="flex flex-col space-y-4 pt-4">
-              <NavbarLinks />
+              <NavbarLinks onClick={() => setIsMobileMenuOpen(false)} />
             </div>
           </div>
         )}
