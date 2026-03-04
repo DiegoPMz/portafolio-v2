@@ -1,8 +1,20 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import { baseUrl } from "@/data/projectDetails";
+import Layout, { type LayoutMetaData } from "@/layouts/Layout.astro";
+
+const cvMetaData: LayoutMetaData = {
+  title: "Diego Peralta - Desarrollador Full-Stack | CV",
+  description:
+    "Currículum de Diego Peralta, desarrollador Full-Stack Jr. especializado en React (TypeScript) y C#/ASP.NET Core. Experiencia en Node.js, arquitecturas limpias (Hexagonal, Vertical Slice, MVC) y creación de APIs REST seguras con JWT y OAuth2. Manejo de PostgreSQL y MySQL, testing con Vitest y MSW, y entornos de desarrollo con Docker.",
+  keywords:
+    "Diego Peralta, CV, currículum, desarrollador full-stack, React, TypeScript, C#, ASP.NET Core, Node.js, PostgreSQL, MySQL, Docker, Git, Tailwind CSS, Shadcn UI, TanStack, Zod, Express, JWT, OAuth2, arquitectura hexagonal, vertical slice, MVC, API REST, Vitest, MSW, desarrollo web, software",
+  url: `${baseUrl}${Astro.url.pathname}`,
+  ogDescription:
+    "Perfil profesional y CV de Diego Peralta, especializado en React, TypeScript y C#/ASP.NET Core. Experiencia en arquitecturas limpias, APIs REST seguras y bases de datos relacionales.",
+};
 ---
 
-<Layout>
+<Layout {...cvMetaData}>
   <div class="bg-white text-gray-800 max-w-4xl mx-auto p-6 print:p-0">
     <!-- Encabezado -->
     <header class="mb-6">
@@ -12,19 +24,28 @@ import Layout from "@/layouts/Layout.astro";
       <div class="h-[1px] w-full bg-black mb-6"></div>
       <ul class="flex list-disc list-inside flex-wrap gap-x-4 text-sm">
         <li>CDMX</li>
-        <li>5583126598</li>
-        <li>diego.pmz08@gmail.com</li>
-        <li>Portafolio Personal</li>
+        <li>
+          <a
+            class="underline"
+            href="https://www.linkedin.com/in/diego-peralta-martinez-a9791b378/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+        </li>
+        <li>diego.peraltam03@gmail.com</li>
       </ul>
     </header>
 
     <!-- Introducción -->
     <p class="mb-6 text-justify">
-      Desarrollador Full-Stack Jr. con experiencia tanto en frontend como
-      backend. Autodidacta y en constante aprendizaje, apasionado por crear
-      soluciones tecnológicas completas. Capacidad para trabajar en todo el
-      ciclo de desarrollo, desde la implementación de interfaces de usuario
-      hasta la creación de APIs robustas.
+      Desarrollador Full-Stack Jr. enfocado en la creación de aplicaciones
+      escalables y mantenibles. Mi stack principal se basa en React (TypeScript)
+      para el frontend y C# (ASP.NET Core) o Node.js para el backend. Aplico
+      principios de Clean Architecture y patrones MVC para asegurar un código
+      organizado y fácil de testear. Actualmente, estoy expandiendo mis
+      capacidades en el ecosistema de PHP/Laravel con Inertia.js, aplicando mi
+      experiencia en arquitecturas robustas y entornos de desarrollo con Docker.
     </p>
 
     <div class="h-[1px] w-full bg-black mb-6"></div>
@@ -32,35 +53,37 @@ import Layout from "@/layouts/Layout.astro";
     <!-- Tecnologías -->
     <section class="mb-6">
       <h2 class="text-xl font-bold uppercase mb-3">Tecnologías</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 gap-4">
+        <div>
+          <h3 class="font-semibold">Backend & Arquitectura:</h3>
+          <ul class="list-disc pl-5">
+            <li>
+              C# (ASP.NET Core), PHP (Laravel - Aprendizaje activo), Node.js
+              (Express), Vertical Slice, Arquitectura Hexagonal, MVC, API REST,
+              JWT, OAuth2/OpenID Connect.
+            </li>
+          </ul>
+        </div>
+
         <div>
           <h3 class="font-semibold">Frontend:</h3>
-          <ul class="list-disc list-inside pl-2">
-            <li>React, Angular, TypeScript</li>
-            <li>Zustand, Tailwind, Vite</li>
-            <li>Sass, Jest, Zod</li>
+          <ul class="list-disc pl-5">
+            <li>
+              React, TypeScript , TanStack (Query & Router), Axios, Shadcn UI,
+              Tailwind CSS , Zod.
+            </li>
           </ul>
         </div>
         <div>
-          <h3 class="font-semibold">Backend:</h3>
-          <ul class="list-disc list-inside pl-2">
-            <li>Node.js, Express, Java</li>
-            <li>Spring boot, JPA/Hibernate</li>
-            <li>MVC, JWT, Mongoose</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold">Bases de Datos:</h3>
-          <ul class="list-disc list-inside pl-2">
-            <li>MySQL, MongoDB</li>
+          <h3 class="font-semibold">Bases de Datos & Testing:</h3>
+          <ul class="list-disc pl-5">
+            <li>PostgreSQL, MySQL, Vitest, MSW (Mock Service Worker).</li>
           </ul>
         </div>
         <div>
           <h3 class="font-semibold">Herramientas de desarrollo:</h3>
           <ul class="list-disc list-inside pl-2">
-            <li>Git, Github</li>
-            <li>VsCode, IntelliJ</li>
-            <li>Insomnia, Postman</li>
+            <li>Docker, Git, GitHub, VS Code, IntelliJ, Postman, DBeaver.</li>
           </ul>
         </div>
       </div>
@@ -87,50 +110,72 @@ import Layout from "@/layouts/Layout.astro";
     <div class="h-[1px] w-full bg-black mb-6"></div>
 
     <!-- Proyectos Personales -->
-    <section class="mb-6">
+    <section class="mb-6 space-y-4">
       <h2 class="text-xl font-bold uppercase mb-3">Proyectos Personales</h2>
 
-      <div class="mb-4">
-        <h3 class="font-semibold">Share Link App</h3>
-        <ul class="list-disc list-inside pl-2 space-y-1">
+      <div>
+        <h3 class="font-semibold">Kanban System (C# - ASP.NET & React)</h3>
+        <ul class="list-disc pl-5 space-y-1">
           <li>
-            <span class="font-medium">Stack completo:</span> React (Frontend), Node.js/Express
-            (Backend), MongoDB (Base de datos)
+            Implementación de
+            <strong>Vertical Slice + Hexagonal Architecture</strong>
+            para el desacoplamiento total de la lógica de negocio.
           </li>
           <li>
-            <span class="font-medium">Seguridad avanzada:</span> Implementación de
-            JWT con sistema de whitelist y refresh tokens
+            Autenticación
+            <strong> OpenID/OAuth2 (Google) </strong>
+            con generación de
+            <strong> JWT</strong>
+            personalizados para la gestión de sesiones.
           </li>
           <li>
-            <span class="font-medium">Gestión de imágenes:</span> Integración con
-            Cloudinary (upload, compresión y CDN) mediante API REST
+            Frontend con
+            <strong> TanStack Router/Query y Shadcn UI; </strong>
+            validación de integridad de datos mediante
+            <strong> Zod </strong>.
           </li>
           <li>
-            <span class="font-medium">Flujo de autenticación:</span> Sistema completo
-            con registro, login, persistencia de sesión y middlewares de autorización
-          </li>
-          <li>
-            <span class="font-medium">Validación robusta:</span> Esquemas con Zod
-            en frontend y backend para integridad de datos
+            Estrategia de calidad mediante Vitest y MSW para el mockeo de
+            servicios de API.
           </li>
         </ul>
       </div>
 
       <div>
-        <h3 class="font-semibold">Trello App</h3>
-        <ul class="list-disc list-inside pl-2 space-y-1">
+        <h3 class="font-semibold">Sistema de Gestión (Laravel - En curso)</h3>
+        <ul class="list-disc pl-5 space-y-1">
           <li>
-            Desarrollé una Trello app en React con un enfoque minimalista,
-            utilizando localStorage para almacenar tareas y tableros de manera
-            local.
+            Arquitectura
+            <strong>MVC</strong>
+            con
+            <strong>Laravel y PostgreSQL</strong>; integración de
+            <strong> Inertia.js </strong>
+            para renderizado reactivo con
+            <strong> React y TypeScript. </strong>
           </li>
           <li>
-            Creé un store global utilizando useReducer y useContext para manejar
-            el estado de la aplicación de forma centralizada.
+            Configuración y despliegue del entorno de desarrollo mediante
+            <strong> contenedores Docker</strong>.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold">Share Link App (Node.js & React)</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>
+            Seguridad avanzada:
+            <strong> JWT </strong>
+            con sistema de whitelist y refresh tokens.
           </li>
           <li>
-            Diseñé componentes reutilizables para mejorar la modularidad y
-            encapsulamiento de responsabilidades.
+            Gestión de medios: Integración con
+            <strong> Cloudinary </strong>(upload y compresión) vía API REST.
+          </li>
+          <li>
+            Validación robusta: Esquemas con
+            <strong>Zod</strong>
+            en frontend y backend para asegurar la integridad.
           </li>
         </ul>
       </div>
@@ -142,14 +187,13 @@ import Layout from "@/layouts/Layout.astro";
     <section>
       <h2 class="text-xl font-bold uppercase mb-3">Skills</h2>
       <ul class="flex flex-wrap gap-1 list-disc list-inside">
-        <li class="px-3 py-1">Resolución de problemas</li>
+        <li class="px-3 py-1">Pensamiento Analítico</li>
         <li class="px-3 py-1">Formación continua</li>
         <li class="px-3 py-1">Agilidad con los resultados</li>
-        <li class="px-3 py-1">Disponibilidad total</li>
+        <li class="px-3 py-1">Orientación a Resultados</li>
       </ul>
     </section>
 
-    <!-- Botón de descarga (solo visible en web) -->
     <div
       class="mt-8 text-center flex flex-col items-center md:flex-row md:justify-center gap-3 print:hidden"
     >
