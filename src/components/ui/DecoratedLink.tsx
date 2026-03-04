@@ -39,7 +39,7 @@ export const DecoratedLink = ({
           variant === "blue" && "from-blue-500/10 to-purple-500/10",
         )}
       ></div>
-      <div className="flex items-center justify-center space-x-3">
+      <div className="w-full h-full flex items-center justify-center space-x-3 ">
         {props.children}
       </div>
     </a>
@@ -81,41 +81,3 @@ const AccentDots = ({ className }: { className?: string }) => {
 };
 
 AccentDotsOverlay.AccentDot = AccentDots;
-
-// export const DecoratedLink = ({
-//   variant,
-//   size,
-//   className,
-//   ...props
-// }: React.ComponentProps<"a"> & VariantProps<typeof linkVariants>) => {
-//   return (
-//     <a className={cn(linkVariants({ variant, size, className }))} {...props}>
-//       <div
-//         className={cn(
-//           "absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 from-zinc-700/20 to-zinc-600/20",
-//           variant === "blue" && "from-blue-500/10 to-purple-500/10",
-//         )}
-//       ></div>
-//       <div className="flex items-center justify-center space-x-3">
-//         <div className="absolute top-0 left-0 w-full h-full ">
-//           {typeof props.children !== undefined ? (
-//             props.children
-//           ) : (
-//             <>
-//               <div
-//                 className={cn(
-//                   "absolute  w-2 h-2 bg-emerald-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300 top-3 right-3",
-//                 )}
-//               ></div>
-//               <div
-//                 className={cn(
-//                   "absolute w-1 h-1 bg-blue-400 rounded-full opacity-40 group-hover:opacity-80 transition-opacity duration-300 bottom-3 left-3",
-//                 )}
-//               ></div>
-//             </>
-//           )}
-//         </div>
-//       </div>
-//     </a>
-//   );
-// };

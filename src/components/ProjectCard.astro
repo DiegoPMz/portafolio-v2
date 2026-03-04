@@ -120,7 +120,9 @@ const { position, project } = Astro.props;
         {/* Action Buttons */}
         <div class="flex gap-4 pt-8">
           <DecoratedLink size={"sm"} target="_blank" href={project.live}>
-            <div class="flex flex-col items-center md:flex-row md:space-x-3">
+            <div
+              class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
+            >
               <ExternalLink
                 className="w-5 h-5 text-zinc-400 group-hover:text-zinc-200 transition-colors duration-300 group-hover:rotate-12"
               />
@@ -138,17 +140,21 @@ const { position, project } = Astro.props;
           >
             <AccentDotsOverlay />
             <div
-              class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
             >
-              <FileText
-                className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
-              />
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <FileText
+                  className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
+                />
+              </div>
+              <span
+                class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
+              >
+                Ver Detalles
+              </span>
             </div>
-            <span
-              class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
-            >
-              Ver Detalles
-            </span>
           </DecoratedLink>
         </div>
       </div>
