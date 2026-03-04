@@ -1,16 +1,46 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+
+export type LayoutMetaData = {
+  title: string; // Título de la página
+  description: string; // Descripción para buscadores y redes sociales
+  keywords?: string; // Palabras clave (opcional)
+  url: string; // URL pública del sitio
+  ogDescription?: string;
+};
+
+type Props = LayoutMetaData;
+const {
+  title,
+  description,
+  keywords,
+  url,
+  ogDescription = "Explora mis proyectos y habilidades como desarrollador Full-stack",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/testLogo2.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Diego Peralta" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Diego Peralta - Portafolio de Desarrollador Web"
+    />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content="/testLogo2.png" />
+
+    <title>{title}</title>
     <ClientRouter />
   </head>
   <body>
