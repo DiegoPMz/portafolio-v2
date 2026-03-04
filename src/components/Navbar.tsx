@@ -62,7 +62,7 @@ export const Navbar = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/diego-peralta-b9b012291/"
+              href="https://www.linkedin.com/in/diego-peralta-martinez-a9791b378/"
               target="_blank"
               aria-label="Perfil de Linkedin de Diego Peralta"
               className="text-zinc-500 hover:text-blue-400 transition-all duration-500 hover:scale-110"
