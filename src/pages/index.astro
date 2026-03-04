@@ -6,10 +6,19 @@ import HeroSection from "@/components/HeroSection.astro";
 import HomeFooter from "@/components/HomeFooter.astro";
 import { Navbar } from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection.astro";
-import Layout from "../layouts/Layout.astro";
+import Layout, { type LayoutMetaData } from "../layouts/Layout.astro";
+
+const homeMetaData: LayoutMetaData = {
+  title: "Diego Peralta - Portafolio",
+  description:
+    "Portafolio profesional de Diego Peralta, desarrollador web full-stack con base en Ciudad de México. Experiencia en desarrollo frontend y backend utilizando tecnologías modernas como JavaScript, TypeScript, React, Angular, Node.js y MongoDB.",
+  keywords:
+    "Diego Peralta, desarrollador web, desarrollador full-stack, frontend, backend, JavaScript, TypeScript, React, Angular, Node.js, Express, MongoDB, HTML, CSS, programación web, Ciudad de México",
+  url: "https://diegoperalta.dev",
+};
 ---
 
-<Layout>
+<Layout {...homeMetaData}>
   <div
     class="bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative overflow-hidden"
   >

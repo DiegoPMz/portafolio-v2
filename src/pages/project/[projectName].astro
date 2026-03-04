@@ -20,9 +20,15 @@ export function getStaticPaths() {
 }
 
 const project = Astro.props;
+const metaData = project.metaData;
 ---
 
-<Layout>
+<Layout
+  title={metaData.title}
+  description={metaData.description}
+  keywords={metaData.keywords}
+  url={`${metaData.baseUrl}${Astro.url.pathname}`}
+>
   <div
     class="min-h-screen bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative"
   >

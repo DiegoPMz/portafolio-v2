@@ -16,7 +16,6 @@ import {
   Server,
   Shield,
   Smartphone,
-  Users,
 } from "lucide-react";
 import React from "react";
 
@@ -30,8 +29,31 @@ import mobileVideo3Preview from "@/assets/devlinks/mobileVideo3Preview.webp";
 import videoPhone from "@/assets/devlinks/videoPhone.webm";
 import videoPhone2 from "@/assets/devlinks/videoPhone2.webm";
 import videoPhone3 from "@/assets/devlinks/videoPhone3.webm";
-
 //
+import kanbanBrowserMockup from "@/assets/kanbanApp/browserMockup.webp";
+import kanbanAppDesktopVideo from "@/assets/kanbanApp/kanbanAppDesktopVideo.webm";
+import kanbanVideoPhone1 from "@/assets/kanbanApp/kanbanVideoPhone1.webm";
+import kanbanVideoPhone2 from "@/assets/kanbanApp/kanbanVideoPhone2.webm";
+import kanbanVideoPhone3 from "@/assets/kanbanApp/kanbanVideoPhone3.webm";
+import kanbanStaticPhonesMockup from "@/assets/kanbanApp/staticPhonesMockup.webp";
+
+import kanbanAppDesktopVideoPreview from "@/assets/kanbanApp/kanbanAppDesktopVideoPreview.webp";
+import kanbanVideophone1Preview from "@/assets/kanbanApp/kanbanVideophone1Preview.webp";
+import kanbanVideophone2Preview from "@/assets/kanbanApp/kanbanVideophone2Preview.webp";
+import kanbanVideophone3Preview from "@/assets/kanbanApp/kanbanVideophone3Preview.webp";
+//
+import WITWBrowserMockup from "@/assets/WITW/WITWBrowser.webp";
+import WITWStaticPhonesMockup from "@/assets/WITW/WITWStaticPhones..webp";
+import WITWAppDesktopVideo from "@/assets/WITW/WITWVBrowserVideo.webm";
+import WITWVideoPhone1 from "@/assets/WITW/WITWVideoPhone1.webm";
+import WITWVideoPhone2 from "@/assets/WITW/WITWVideoPhone2.webm";
+import WITWVideoPhone3 from "@/assets/WITW/WITWVideoPhone3.webm";
+
+import WITWAppDesktopVideoPreview from "@/assets/WITW/WITWAppDesktopVideoPreview.webp";
+import WITWVideophone1Preview from "@/assets/WITW/WITWVideophone1Preview.webp";
+import WITWVideophone2Preview from "@/assets/WITW/WITWVideophone2Preview.webp";
+import WITWVideophone3Preview from "@/assets/WITW/WITWVideophone3Preview.webp";
+import type { LayoutMetaData } from "@/layouts/Layout.astro";
 
 export interface MediaItem {
   type: "image" | "video";
@@ -114,33 +136,15 @@ export interface ProjectDetails {
   projectRolAndResp: ProjectRoleAndResp[];
   timelinePhase: TimelinePhase[];
   projectLinks: ProjectLinks;
+  metaData: Omit<LayoutMetaData, "url"> & {
+    baseUrl: string;
+  };
 }
 
-import kanbanBrowserMockup from "@/assets/kanbanApp/browserMockup.webp";
-import kanbanAppDesktopVideo from "@/assets/kanbanApp/kanbanAppDesktopVideo.webm";
-import kanbanVideoPhone1 from "@/assets/kanbanApp/kanbanVideoPhone1.webm";
-import kanbanVideoPhone2 from "@/assets/kanbanApp/kanbanVideoPhone2.webm";
-import kanbanVideoPhone3 from "@/assets/kanbanApp/kanbanVideoPhone3.webm";
-import kanbanStaticPhonesMockup from "@/assets/kanbanApp/staticPhonesMockup.webp";
+export const baseUrl: string =
+  import.meta.env.PUBLIC_BASE_URL || "http://localhost:3000";
 
-import kanbanAppDesktopVideoPreview from "@/assets/kanbanApp/kanbanAppDesktopVideoPreview.webp";
-import kanbanVideophone1Preview from "@/assets/kanbanApp/kanbanVideophone1Preview.webp";
-import kanbanVideophone2Preview from "@/assets/kanbanApp/kanbanVideophone2Preview.webp";
-import kanbanVideophone3Preview from "@/assets/kanbanApp/kanbanVideophone3Preview.webp";
-//
-import WITWBrowserMockup from "@/assets/WITW/WITWBrowser.webp";
-import WITWStaticPhonesMockup from "@/assets/WITW/WITWStaticPhones..webp";
-import WITWAppDesktopVideo from "@/assets/WITW/WITWVBrowserVideo.webm";
-import WITWVideoPhone1 from "@/assets/WITW/WITWVideoPhone1.webm";
-import WITWVideoPhone2 from "@/assets/WITW/WITWVideoPhone2.webm";
-import WITWVideoPhone3 from "@/assets/WITW/WITWVideoPhone3.webm";
-
-import WITWAppDesktopVideoPreview from "@/assets/WITW/WITWAppDesktopVideoPreview.webp";
-import WITWVideophone1Preview from "@/assets/WITW/WITWVideophone1Preview.webp";
-import WITWVideophone2Preview from "@/assets/WITW/WITWVideophone2Preview.webp";
-import WITWVideophone3Preview from "@/assets/WITW/WITWVideophone3Preview.webp";
-
-const DEVLINKS: ProjectDetails = {
+const DEV_LINKS_DETAILS: ProjectDetails = {
   title: "DevLinks",
   description:
     "Aplicación Full-Stack que permite a desarrolladores crear páginas de enlaces personalizadas para centralizar su presencia en línea, con plantillas personalizables e interfaz intuitiva.",
@@ -252,7 +256,7 @@ const DEVLINKS: ProjectDetails = {
     solution:
       "Plataforma que permite crear páginas personalizadas de enlaces con diseño profesional sin necesidad de conocimientos avanzados.",
     impact:
-      "Optimización del 80% en el tiempo de gestión de enlaces profesionales según feedback de usuarios.",
+      "Facilitó la centralización de enlaces profesionales en una sola página, con interfaces atractivas y personalizables.",
   },
 
   projectRolAndResp: [
@@ -294,7 +298,7 @@ const DEVLINKS: ProjectDetails = {
     },
     {
       phase: "Desarrollo MVP",
-      duration: "Semanas 2-4",
+      duration: "Semanas 2-8",
       description: "Implementación de funcionalidades core",
       deliverables: [
         "Sistema de autenticación",
@@ -306,7 +310,7 @@ const DEVLINKS: ProjectDetails = {
     },
     {
       phase: "Optimización",
-      duration: "Semana 5",
+      duration: "Semana 9",
       description: "Mejoras de performance y seguridad",
       deliverables: [
         "Middleware de validación JWT",
@@ -356,21 +360,29 @@ const DEVLINKS: ProjectDetails = {
   ],
 
   projectStats: {
-    performanceScore: "98",
-    accessibility: "95",
-    loadTime: "1.2s",
-    seoScore: "92",
+    performanceScore: "100",
+    accessibility: "100",
+    loadTime: "0.5s",
+    seoScore: "91",
   },
 
   projectMetrics: [
-    { label: "Tiempo Desarrollo", value: "5 semanas", icon: Clock },
+    { label: "Tiempo Desarrollo", value: "10 semanas", icon: Clock },
     { label: "Endpoints API", value: "12+", icon: Code2 },
     { label: "Componentes UI", value: "30+", icon: LayoutGrid },
-    { label: "Usuarios Activos", value: "250+", icon: Users },
+    { label: "Seguridad", value: "JWT", icon: Shield },
   ],
+  metaData: {
+    title: "DevLinks -- Diego Pm",
+    description:
+      "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. Estas páginas facilitan la presentación de perfiles, proyectos y otras plataformas en un solo lugar, optimizando la presencia en línea de los profesionales. La aplicación ofrece plantillas personalizables y una interfaz intuitiva, lo que permite a los usuarios diseñar páginas atractivas sin necesidad de conocimientos avanzados en desarrollo web.",
+    baseUrl: baseUrl,
+    keywords:
+      "DevLinks, aplicación full-stack, páginas de enlaces, enlaces personalizados, desarrolladores, React, TypeScript, Vite, Zustand, Tailwind CSS, Node.js, Express, MongoDB, Zod, interfaz intuitiva, plantillas personalizables, gestión de enlaces, autenticación JWT, API REST, desarrollo frontend, desarrollo backend, plataforma para desarrolladores, presencia en línea, proyecto web, diseño responsive, validación de datos, seguridad web",
+  },
 };
 
-const KANBANAPP: ProjectDetails = {
+const KANBAN_APP_DETAILS: ProjectDetails = {
   title: "KanbanApp",
   description:
     "Aplicación para organización de actividades en tablas Kanban, permitiendo creación, movimiento y subdivisión de elementos con visualización clara y adaptable a diferentes necesidades.",
@@ -588,9 +600,17 @@ const KANBANAPP: ProjectDetails = {
     { label: "Tareas gestionadas", value: "10,000+", icon: ListChecks },
     { label: "Tiempo desarrollo", value: "4 semanas", icon: Clock },
   ],
+  metaData: {
+    title: "KanbanApp -- Diego Pm",
+    description:
+      "Aplicación para organización visual de tareas en tableros Kanban, con drag and drop y persistencia local. Desarrollada con React, Vite y DnD Kit, ofrece una experiencia intuitiva y responsive.",
+    keywords:
+      "KanbanApp, aplicación frontend, gestión de tareas, tableros Kanban, organización de actividades, React, Vite, DnD Kit, HTML5, CSS3, JavaScript, drag and drop, persistencia local, diseño responsive, validación de datos, UX, desarrollo frontend, productividad, organización personal, gestión de proyectos, desarrollo web",
+    baseUrl: baseUrl,
+  },
 };
 
-const WITW: ProjectDetails = {
+const WITW_DETAILS: ProjectDetails = {
   title: "Where in the world",
   description:
     "Aplicación frontend que proporciona información detallada sobre todos los países del mundo, permitiendo búsqueda por nombre o región, con datos como población, capital y características geográficas.",
@@ -806,6 +826,18 @@ const WITW: ProjectDetails = {
     { label: "Hooks personalizados", value: "4", icon: Code2 },
     { label: "Tiempo desarrollo", value: "4 semanas", icon: Clock },
   ],
+  metaData: {
+    title: "Where in the world -- Diego Pm",
+    description:
+      "Aplicación frontend que ofrece información detallada sobre países, con búsqueda avanzada y filtros por región. Desarrollada con React y Vite, brinda una experiencia responsive y accesible.",
+    keywords:
+      "Where in the world, aplicación frontend, información países, búsqueda por región, datos geográficos, React, Vite, React Router, JavaScript, HTML5, CSS3, interfaz responsiva, API de países, filtros avanzados, paginación, UX, desarrollo frontend, geopolítica, datos demográficos, desarrollo web",
+    baseUrl: baseUrl,
+  },
 };
 
-export const projectsData: ProjectDetails[] = [DEVLINKS, KANBANAPP, WITW];
+export const projectsData: ProjectDetails[] = [
+  DEV_LINKS_DETAILS,
+  KANBAN_APP_DETAILS,
+  WITW_DETAILS,
+];
