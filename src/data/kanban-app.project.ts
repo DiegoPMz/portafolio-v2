@@ -248,5 +248,6 @@ export const kanbanProjectDetails: ProjectDetails = {
       "Aplicación para organización visual de tareas en tableros Kanban, con drag and drop y persistencia local. Desarrollada con React, Vite y DnD Kit, ofrece una experiencia intuitiva y responsive.",
     keywords:
       "KanbanApp, aplicación frontend, gestión de tareas, tableros Kanban, organización de actividades, React, Vite, DnD Kit, HTML5, CSS3, JavaScript, drag and drop, persistencia local, diseño responsive, validación de datos, UX, desarrollo frontend, productividad, organización personal, gestión de proyectos, desarrollo web",
+    pathname: "kanbanApp",
   },
 };

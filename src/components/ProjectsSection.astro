@@ -1,11 +1,26 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
-
 import previewDevLinks from "@/assets/home/previewDevLinks.webp";
 import previewKanbanApp from "@/assets/home/previewKanbanApp.webp";
 import previewWITW from "@/assets/home/previewWITW.webp";
+import { devLinksProjectDetails } from "@/data/dev-links.project";
+import { kanbanProjectDetails } from "@/data/kanban-app.project";
+import { whereInTheWorldProjectDetails } from "@/data/where-in-the-world.project";
 
-const projects = [
+export interface ProjectIntroductionDetails {
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  live: string;
+  category: string;
+  year: string;
+  status: string;
+  pathname: string;
+}
+
+const projects: ProjectIntroductionDetails[] = [
   {
     title: "DevLinks",
     subtitle: "App para crear tu perfil de enlaces personalizado",
@@ -25,6 +40,7 @@ const projects = [
     category: "Web Application",
     year: "2024",
     status: "Production",
+    pathname: devLinksProjectDetails.metaData.pathname,
   },
   {
     title: "KanbanApp",
@@ -37,6 +53,7 @@ const projects = [
     category: "Web Application",
     year: "2023",
     status: "Production",
+    pathname: kanbanProjectDetails.metaData.pathname,
   },
   {
     title: "Where in the world",
@@ -49,6 +66,7 @@ const projects = [
     category: "Reference Web App",
     year: "2023",
     status: "Production",
+    pathname: whereInTheWorldProjectDetails.metaData.pathname,
   },
 ];
 ---

@@ -23,7 +23,7 @@ export function getStaticPaths() {
   ];
 
   return projectDetails.map((project) => ({
-    params: { projectName: project.title },
+    params: { projectName: project.metaData.pathname },
     props: project,
   }));
 }

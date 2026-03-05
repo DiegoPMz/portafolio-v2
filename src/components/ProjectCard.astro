@@ -3,22 +3,11 @@ import { cn } from "@/lib/utils";
 import { ExternalLink, FileText } from "lucide-react";
 import ProjectBadge from "./ProjectBadge.astro";
 import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
-
-interface ProjectDetails {
-  image: string;
-  title: string;
-  category: string;
-  status: string;
-  year: string;
-  subtitle: string;
-  description: string;
-  technologies: string[];
-  live: string;
-}
+import type { ProjectIntroductionDetails } from "./ProjectsSection.astro";
 
 interface Props {
   position: number;
-  project: ProjectDetails;
+  project: ProjectIntroductionDetails;
 }
 
 const { position, project } = Astro.props;
@@ -135,7 +124,7 @@ const { position, project } = Astro.props;
           </DecoratedLink>
           <DecoratedLink
             size={"xs"}
-            href=`proyecto/${project.title}`
+            href=`proyecto/${project.pathname}`
             data-astro-prefetch
           >
             <AccentDotsOverlay />

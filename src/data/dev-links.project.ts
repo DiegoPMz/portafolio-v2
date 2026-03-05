@@ -253,5 +253,7 @@ export const devLinksProjectDetails: ProjectDetails = {
       "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. Estas páginas facilitan la presentación de perfiles, proyectos y otras plataformas en un solo lugar, optimizando la presencia en línea de los profesionales. La aplicación ofrece plantillas personalizables y una interfaz intuitiva, lo que permite a los usuarios diseñar páginas atractivas sin necesidad de conocimientos avanzados en desarrollo web.",
     keywords:
       "DevLinks, aplicación full-stack, páginas de enlaces, enlaces personalizados, desarrolladores, React, TypeScript, Vite, Zustand, Tailwind CSS, Node.js, Express, MongoDB, Zod, interfaz intuitiva, plantillas personalizables, gestión de enlaces, autenticación JWT, API REST, desarrollo frontend, desarrollo backend, plataforma para desarrolladores, presencia en línea, proyecto web, diseño responsive, validación de datos, seguridad web",
+
+    pathname: "devLink",
   },
 };

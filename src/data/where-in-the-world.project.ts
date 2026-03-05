@@ -244,5 +244,6 @@ export const whereInTheWorldProjectDetails: ProjectDetails = {
       "Aplicación frontend que ofrece información detallada sobre países, con búsqueda avanzada y filtros por región. Desarrollada con React y Vite, brinda una experiencia responsive y accesible.",
     keywords:
       "Where in the world, aplicación frontend, información países, búsqueda por región, datos geográficos, React, Vite, React Router, JavaScript, HTML5, CSS3, interfaz responsiva, API de países, filtros avanzados, paginación, UX, desarrollo frontend, geopolítica, datos demográficos, desarrollo web",
+    pathname: "whereInTheWorld",
   },
 };

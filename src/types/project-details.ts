@@ -82,5 +82,7 @@ export interface ProjectDetails {
   projectRolAndResp: ProjectRoleAndResp[];
   timelinePhase: TimelinePhase[];
   projectLinks: ProjectLinks;
-  metaData: Omit<LayoutMetaData, "pathname">;
+  metaData: Omit<LayoutMetaData, "pathname"> & {
+    pathname: string;
+  };
 }
