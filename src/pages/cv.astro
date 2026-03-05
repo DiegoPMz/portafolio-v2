@@ -1,14 +1,13 @@
 ---
-import { baseUrl } from "@/data/projectDetails";
 import Layout, { type LayoutMetaData } from "@/layouts/Layout.astro";
 
 const cvMetaData: LayoutMetaData = {
   title: "Diego Peralta - Desarrollador Full-Stack | CV",
+  pathname: Astro.url.pathname,
   description:
     "Currículum de Diego Peralta, desarrollador Full-Stack Jr. especializado en React (TypeScript) y C#/ASP.NET Core. Experiencia en Node.js, arquitecturas limpias (Hexagonal, Vertical Slice, MVC) y creación de APIs REST seguras con JWT y OAuth2. Manejo de PostgreSQL y MySQL, testing con Vitest y MSW, y entornos de desarrollo con Docker.",
   keywords:
     "Diego Peralta, CV, currículum, desarrollador full-stack, React, TypeScript, C#, ASP.NET Core, Node.js, PostgreSQL, MySQL, Docker, Git, Tailwind CSS, Shadcn UI, TanStack, Zod, Express, JWT, OAuth2, arquitectura hexagonal, vertical slice, MVC, API REST, Vitest, MSW, desarrollo web, software",
-  url: `${baseUrl}${Astro.url.pathname}`,
   ogDescription:
     "Perfil profesional y CV de Diego Peralta, especializado en React, TypeScript y C#/ASP.NET Core. Experiencia en arquitecturas limpias, APIs REST seguras y bases de datos relacionales.",
 };

@@ -6,7 +6,7 @@ export type LayoutMetaData = {
   title: string; // Título de la página
   description: string; // Descripción para buscadores y redes sociales
   keywords?: string; // Palabras clave (opcional)
-  url: string; // URL pública del sitio
+  pathname: string; // URL pública del sitio
   ogDescription?: string;
 };
 
@@ -15,9 +15,11 @@ const {
   title,
   description,
   keywords,
-  url,
+  pathname,
   ogDescription = "Explora mis proyectos y habilidades como desarrollador Full-stack",
 } = Astro.props;
+
+const baseRoute = Astro.url.origin;
 ---
 
 <!doctype html>
@@ -37,7 +39,7 @@ const {
     />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={`${baseRoute}/${pathname}`} />
     <meta property="og:image" content="/testLogo2.png" />
 
     <title>{title}</title>

@@ -9,11 +9,20 @@ import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
 import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
 import ProjectStorySection from "@/components/ProjectStorySection.astro";
 import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
-import { projectsData } from "@/data/projectDetails";
+import { devLinksProjectDetails } from "@/data/dev-links.project";
+import { kanbanProjectDetails } from "@/data/kanban-app.project";
+import { whereInTheWorldProjectDetails } from "@/data/where-in-the-world.project";
 import Layout from "@/layouts/Layout.astro";
+import type { ProjectDetails } from "@/types/project-details";
 
 export function getStaticPaths() {
-  return projectsData.map((project) => ({
+  const projectDetails: ProjectDetails[] = [
+    devLinksProjectDetails,
+    kanbanProjectDetails,
+    whereInTheWorldProjectDetails,
+  ];
+
+  return projectDetails.map((project) => ({
     params: { projectName: project.title },
     props: project,
   }));
@@ -27,7 +36,7 @@ const metaData = project.metaData;
   title={metaData.title}
   description={metaData.description}
   keywords={metaData.keywords}
-  url={`${metaData.baseUrl}${Astro.url.pathname}`}
+  pathname={Astro.url.pathname}
 >
   <div
     class="min-h-screen bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative"
