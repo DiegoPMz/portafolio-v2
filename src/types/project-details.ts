@@ -56,7 +56,6 @@ export interface ProjectRoleAndResp {
 
 export interface TimelinePhase {
   phase: string;
-  duration: string;
   description: string;
   deliverables: string[];
   color: string;

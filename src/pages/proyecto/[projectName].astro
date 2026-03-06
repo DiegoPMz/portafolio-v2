@@ -7,7 +7,6 @@ import ProjectGallery from "@/components/ProjectGallery.astro";
 import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
 import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
 import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
-import ProjectStorySection from "@/components/ProjectStorySection.astro";
 import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
 import { devLinksProjectDetails } from "@/data/dev-links.project";
 import { kanbanProjectDetails } from "@/data/kanban-app.project";
@@ -58,7 +57,6 @@ const metaData = project.metaData;
       mediaItems={project.mediaItems}
       projectStats={project.projectStats}
     />
-    <ProjectStorySection storyDetails={project.projectStory} />
     <ProjectTechnologiesSection techStack={project.techStack} />
     <ProjectRolAndProcessSection
       projectRoleAndResp={project.projectRolAndResp}

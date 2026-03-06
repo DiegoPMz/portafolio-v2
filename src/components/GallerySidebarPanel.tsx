@@ -1,4 +1,4 @@
-import type { MediaItem, ProjectStats } from "@/data/projectDetails";
+import type { MediaItem, ProjectStats } from "@/types/project-details";
 import { useState } from "react";
 import { MediaPreviewCard } from "./MediaPreviewCard";
 import { MediaSidebarList } from "./MediaSidebarList";

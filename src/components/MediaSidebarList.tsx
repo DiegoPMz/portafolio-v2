@@ -1,4 +1,4 @@
-import type { MediaItem } from "@/data/projectDetails";
+import type { MediaItem } from "@/types/project-details";
 import { cn } from "@/lib/utils";
 import { Play } from "lucide-react";
 

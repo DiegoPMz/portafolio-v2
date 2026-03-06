@@ -3,10 +3,10 @@ import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 export type LayoutMetaData = {
-  title: string; // Título de la página
-  description: string; // Descripción para buscadores y redes sociales
-  keywords?: string; // Palabras clave (opcional)
-  pathname: string; // URL pública del sitio
+  title: string;
+  description: string;
+  keywords?: string;
+  pathname: string;
   ogDescription?: string;
 };
 
@@ -27,7 +27,7 @@ const baseRoute = Astro.url.origin;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/testLogo2.png" />
+    <link rel="icon" type="image/svg+xml" href="/portafolio_logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
@@ -40,7 +40,7 @@ const baseRoute = Astro.url.origin;
     <meta property="og:description" content={ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`${baseRoute}/${pathname}`} />
-    <meta property="og:image" content="/testLogo2.png" />
+    <meta property="og:image" content="/portafolio_logo.svg" />
 
     <title>{title}</title>
     <ClientRouter />
@@ -49,12 +49,3 @@ const baseRoute = Astro.url.origin;
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

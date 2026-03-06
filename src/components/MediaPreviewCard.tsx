@@ -1,4 +1,4 @@
-import type { MediaItem } from "@/data/projectDetails";
+import type { MediaItem } from "@/types/project-details";
 import { useEffect, useState, type PropsWithChildren } from "react";
 import { MediaPlayOverlay } from "./ui/MediaPlayOverlay";
 

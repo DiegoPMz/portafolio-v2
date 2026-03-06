@@ -1,4 +1,4 @@
-import type { ProjectStats } from "@/data/projectDetails";
+import type { ProjectStats } from "@/types/project-details";
 
 export const ProjectOverviewStats = ({ stats }: { stats: ProjectStats }) => {
   return (
