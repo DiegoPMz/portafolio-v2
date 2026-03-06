@@ -1,253 +1,227 @@
-import kanbanBrowserMockup from "@/assets/kanbanApp/browserMockup.webp";
-import kanbanAppDesktopVideo from "@/assets/kanbanApp/kanbanAppDesktopVideo.webm";
-import kanbanAppDesktopVideoPreview from "@/assets/kanbanApp/kanbanAppDesktopVideoPreview.webp";
-import kanbanStaticPhonesMockup from "@/assets/kanbanApp/staticPhonesMockup.webp";
-
-import kanbanVideoPhone1 from "@/assets/kanbanApp/kanbanVideoPhone1.webm";
-import kanbanVideophone1Preview from "@/assets/kanbanApp/kanbanVideophone1Preview.webp";
-
-import kanbanVideoPhone2 from "@/assets/kanbanApp/kanbanVideoPhone2.webm";
-import kanbanVideophone2Preview from "@/assets/kanbanApp/kanbanVideophone2Preview.webp";
-
-import kanbanVideoPhone3 from "@/assets/kanbanApp/kanbanVideoPhone3.webm";
-import kanbanVideophone3Preview from "@/assets/kanbanApp/kanbanVideoPhone3Preview.webp";
 import type { ProjectDetails } from "@/types/project-details";
+import type { ProjectIntroduction } from "@/types/project-introduction";
 import {
-  Box,
-  Clock,
-  Code,
+  Code2,
   Cpu,
-  Database,
-  KanbanSquare,
   Layers,
-  ListChecks,
-  Shield,
+  Lock,
+  Scale,
+  Server,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
+import previewKanbanApp from "@/assets/home/previewKanbanApp.webp";
 
-export const kanbanProjectDetails: ProjectDetails = {
-  title: "KanbanApp",
+export const kandoProjectDetails: ProjectDetails = {
+  title: "Kando",
   description:
-    "Aplicación para organización de actividades en tablas Kanban, permitiendo creación, movimiento y subdivisión de elementos con visualización clara y adaptable a diferentes necesidades.",
-  create_at: "2023",
-  projectType: "Frontend",
+    "Sistema de gestión de productividad de alto rendimiento diseñado bajo el paradigma de Vertical Slice Architecture y Arquitectura Hexagonal. Kando separa estrictamente la lógica de dominio de la infraestructura, garantizando escalabilidad y seguridad de grado empresarial.",
+  projectType: "Full-Stack Enterprise",
+  create_at: "2026",
 
   projectLinks: {
     github: "https://github.com/DiegoPMz/KanbanApp",
-    live: "https://kanban-app-nine-xi.vercel.app/",
+    live: undefined,
   },
 
   mediaItems: [
     {
       type: "image",
-      src: kanbanBrowserMockup.src,
-      title: "Versión escritorio",
+      src: "/images/kando-desktop.png",
+      title: "Dashboard Principal - Visualización Kanban",
     },
     {
       type: "video",
-      src: kanbanAppDesktopVideo,
-      title: "Interacción escritorio",
-      videoPrev: kanbanAppDesktopVideoPreview.src,
-    },
-    {
-      type: "image",
-      src: kanbanStaticPhonesMockup.src,
-      title: "Vista móvil - Temas",
-    },
-    {
-      type: "video",
-      src: kanbanVideoPhone1,
-      title: "Interacción móvil 1",
-      videoPrev: kanbanVideophone1Preview.src,
-    },
-    {
-      type: "video",
-      src: kanbanVideoPhone2,
-      title: "Interacción móvil 2",
-      videoPrev: kanbanVideophone2Preview.src,
-    },
-    {
-      type: "video",
-      src: kanbanVideoPhone3,
-      title: "Interacción móvil 3",
-      videoPrev: kanbanVideophone3Preview.src,
+      src: "/videos/kando-demo.mp4",
+      title: "Interacción de Drag and Drop y Sincronización",
+      videoPrev: "/images/previews/kando-preview.png",
     },
   ],
 
   techStack: [
     {
-      name: "React",
+      name: ".NET 8 & EF Core",
+      category: "Backend",
+      usage: "API bajo Vertical Slice Architecture y PostgreSQL",
+      color: "from-purple-600 to-indigo-600",
+    },
+    {
+      name: "React & TS",
       category: "Frontend",
-      usage: "Librería principal",
-      color: "from-blue-400 to-cyan-400",
+      usage: "Arquitectura Hexagonal con bases de DDD",
+      color: "from-blue-400 to-sky-500",
     },
     {
-      name: "Vite",
-      category: "Tooling",
-      usage: "Bundler y entorno de desarrollo",
-      color: "from-purple-400 to-pink-400",
+      name: "TanStack Suite",
+      category: "Data & Routing",
+      usage: "Manejo de estado asíncrono y Type-safe routing",
+      color: "from-red-500 to-pink-500",
     },
     {
-      name: "DnD Kit",
-      category: "Library",
-      usage: "Drag and drop funcional",
-      color: "from-yellow-400 to-amber-400",
-    },
-
-    {
-      name: "HTML5",
-      category: "Markup",
-      usage: "Estructura base",
-      color: "from-orange-400 to-red-400",
-    },
-    {
-      name: "CSS3",
+      name: "Tailwind CSS v4",
       category: "Styling",
-      usage: "Estilos y diseño responsive",
-      color: "from-blue-500 to-indigo-500",
+      usage: "Diseño atómico con CVA y Radix UI",
+      color: "from-cyan-400 to-blue-500",
     },
     {
-      name: "JavaScript",
-      category: "Language",
-      usage: "Lógica de aplicación",
-      color: "from-yellow-500 to-yellow-600",
+      name: "MSW & Vitest",
+      category: "Testing",
+      usage: "Simulación de contratos de API y Unit Testing",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      name: "OAuth / BFF",
+      category: "Security",
+      usage: "Autenticación Google con Cookies HttpOnly",
+      color: "from-orange-500 to-yellow-500",
     },
   ],
 
   projectStory: {
     problem:
-      "Falta de herramientas simples para gestión visual de tareas con capacidad de personalización",
+      "Las aplicaciones de gestión suelen fallar al escalar debido al alto acoplamiento entre la UI y las reglas de negocio, además de presentar vulnerabilidades en el manejo de tokens en el cliente.",
     solution:
-      "Aplicación Kanban intuitiva con drag-and-drop, subdivisiones de tareas y persistencia local",
+      "Implementé una arquitectura desacoplada donde el núcleo de negocio no depende de frameworks externos. En el backend, utilicé Vertical Slices para encapsular funcionalidades y el patrón BFF para asegurar la autenticación.",
     impact:
-      "Organización eficiente de flujos de trabajo personales y profesionales",
+      "Un sistema testeable al 100% en su lógica core, capaz de evolucionar tecnológicamente sin afectar las reglas de negocio y con una superficie de ataque XSS minimizada.",
   },
 
   projectRolAndResp: [
     {
-      category: "Desarrollo Frontend",
+      category: "Backend Architecture",
       responsibilities: [
-        "Implementación completa de la aplicación",
-        "Selección tecnológica optimizada",
-        "Maquetación responsive",
+        "Diseño de API RESTful con .NET 8 siguiendo Vertical Slice Architecture",
+        "Implementación del Result Pattern para un flujo de control semántico",
+        "Persistencia relacional optimizada con EF Core y PostgreSQL",
       ],
-      icon: Code,
-      color: "from-blue-500/20 to-cyan-500/20",
+      icon: Server,
+      color: "from-purple-500/20 to-indigo-500/20",
     },
     {
-      category: "Arquitectura",
+      category: "Frontend Engineering",
       responsibilities: [
-        "Diseño de estado global con hooks nativos",
-        "Sistema de persistencia en localStorage",
-        "Validación de datos integrada",
+        "Estructuración Hexagonal para aislar componentes de React de la infraestructura",
+        "Integración de TanStack Query para una gestión de caché eficiente",
+        "Desarrollo de UI accesible con Radix UI y animaciones con DnD Kit",
       ],
-      icon: Cpu,
-      color: "from-purple-500/20 to-pink-500/20",
+      icon: Code2,
+      color: "from-blue-500/20 to-cyan-500/20",
     },
   ],
 
   timelinePhase: [
     {
-      phase: "Planificación",
-      duration: "Semana 1",
-      description: "Análisis de requerimientos y diseño de solución",
+      phase: "Modelado de Dominio",
+      description: "Definición de entidades y reglas de negocio puras",
       deliverables: [
-        "Diagramas en Excalidraw",
-        "Definición de arquitectura",
-        "Selección tecnológica",
+        "Diagramas de Entidad-Relación",
+        "Definición de Agregados DDD",
+        "Contratos de API",
       ],
       color: "from-orange-400 to-yellow-400",
     },
     {
-      phase: "Implementación Core",
-      duration: "Semanas 2-3",
-      description: "Desarrollo de funcionalidades principales",
+      phase: "Desarrollo de Infraestructura",
+      description: "Implementación de persistencia y servicios externos",
       deliverables: [
-        "Sistema Kanban básico",
-        "Drag-and-drop funcional",
-        "Persistencia local",
+        "PostgreSQL Schema",
+        "Configuración de OAuth/Google",
+        "BFF Middleware",
       ],
-      color: "from-green-400 to-emerald-400",
+      color: "from-blue-400 to-indigo-400",
     },
     {
-      phase: "Refinamiento",
-      duration: "Semana 4",
-      description: "Mejoras de UX y validaciones",
+      phase: "QA y Refinamiento",
+      description: "Aseguramiento de calidad y optimización de UX",
       deliverables: [
-        "Helpers de validación",
-        "Feedback visual de errores",
-        "Optimización performance",
+        "Tests unitarios con Vitest",
+        "Mocks de API con MSW",
+        "Lighthouse Audit",
       ],
-      color: "from-blue-400 to-cyan-400",
+      color: "from-green-400 to-emerald-400",
     },
   ],
 
   challenges: [
     {
-      title: "Gestión de Estado Complejo",
+      title: "Pragmatismo Arquitectónico",
       problem:
-        "Alta interdependencia entre múltiples componentes que necesitaban acceder y modificar el mismo estado",
+        "Evitar la sobre-ingeniería en módulos simples mientras se mantiene DDD en áreas críticas.",
       solution:
-        "Implementación de useReducer con múltiples contextos para funciones específicas",
-      impact: "Arquitectura más mantenible sin necesidad de librerías externas",
-      icon: Layers,
+        "Aplicación de lógica de dominio compleja solo en agregados que lo requerían, usando modelos anémicos para CRUDs básicos.",
+      impact: "Código equilibrado entre mantenibilidad y velocidad de entrega.",
+      icon: Scale,
     },
     {
-      title: "Persistencia Local",
-      problem:
-        "Necesidad de sincronizar estado global con localStorage de manera eficiente",
+      title: "Seguridad de Tokens (BFF)",
+      problem: "El riesgo de exponer JWT en LocalStorage ante ataques XSS.",
       solution:
-        "Creación de helper para gestión automática de lectura/escritura",
-      impact: "Experiencia consistente al recargar la aplicación",
-      icon: Database,
-    },
-    {
-      title: "Validación de Datos",
-      problem:
-        "Entrada de datos inválidos o nulos en componentes de formulario",
-      solution: "Implementación de helpers de validación con feedback visual",
-      impact: "Reducción de errores en un 90%",
-      icon: Shield,
+        "Uso de cookies HttpOnly/SameSite gestionadas por el backend de .NET para actuar como proxy de seguridad.",
+      impact: "Seguridad robusta de nivel bancario en el manejo de sesiones.",
+      icon: Lock,
     },
   ],
 
   learnings: [
     {
-      category: "Arquitectura",
+      category: "Ingeniería de Software",
       insights: [
-        "Ventajas de los gestores de estado en proyectos complejos",
-        "Importancia de los patrones de diseño para reutilización",
-        "Balance entre dependencias externas y código nativo",
+        "El desacoplamiento real permite cambiar librerías de UI sin tocar la lógica de negocio",
+        "El Result Pattern elimina la ambigüedad en las respuestas del servidor",
+        "Importancia de la validación de contratos end-to-end con Zod",
       ],
     },
     {
-      category: "UX",
+      category: "Clean Code",
       insights: [
-        "Valor del feedback visual inmediato",
-        "Optimización de flujos drag-and-drop",
-        "Persistencia como feature clave",
+        "Vertical Slices reducen drásticamente la carga cognitiva al desarrollar nuevas features",
+        "Beneficios de la Inversión de Dependencias para el testing",
+        "Manejo de estados complejos de UI mediante enrutamiento basado en tipos",
       ],
     },
   ],
 
   projectStats: {
-    performanceScore: "98",
-    accessibility: "92",
-    loadTime: "0.8s",
-    seoScore: "85",
+    performanceScore: "99",
+    accessibility: "100",
+    loadTime: "0.3s",
+    seoScore: "95",
   },
 
   projectMetrics: [
-    { label: "Componentes", value: "25+", icon: Box },
-    { label: "Tableros creados", value: "500+", icon: KanbanSquare },
-    { label: "Tareas gestionadas", value: "10,000+", icon: ListChecks },
-    { label: "Tiempo desarrollo", value: "4 semanas", icon: Clock },
+    { label: "Arquitectura", value: "Hexagonal / VSA", icon: Layers },
+    { label: "Seguridad", value: "BFF / HttpOnly", icon: ShieldCheck },
+    { label: "Backend Core", value: ".NET 8 / EF", icon: Cpu },
+    { label: "Frontend State", value: "TanStack v5", icon: Zap },
   ],
+
   metaData: {
-    title: "KanbanApp -- Diego Pm",
+    title: "Kando -- Diego Pm",
     description:
-      "Aplicación para organización visual de tareas en tableros Kanban, con drag and drop y persistencia local. Desarrollada con React, Vite y DnD Kit, ofrece una experiencia intuitiva y responsive.",
+      "Kando es una aplicación de gestión Kanban de nivel empresarial construida con .NET 8 y React, enfocada en arquitectura limpia, seguridad BFF y alto rendimiento.",
     keywords:
-      "KanbanApp, aplicación frontend, gestión de tareas, tableros Kanban, organización de actividades, React, Vite, DnD Kit, HTML5, CSS3, JavaScript, drag and drop, persistencia local, diseño responsive, validación de datos, UX, desarrollo frontend, productividad, organización personal, gestión de proyectos, desarrollo web",
-    pathname: "kanbanApp",
+      "Kando, .NET 8, React, TypeScript, Vertical Slice Architecture, Arquitectura Hexagonal, DDD, PostgreSQL, TanStack Query, BFF Pattern, Seguridad Web, Kanban, Ingeniería de Software",
+    pathname: "Kando",
   },
+};
+
+export const kandoIntroduction: ProjectIntroduction = {
+  title: "Kando",
+  subtitle: "Productividad bajo principios de Clean Architecture",
+  description:
+    "Sistema de gestión empresarial que implementa Vertical Slices y Arquitectura Hexagonal. Diseñado con un enfoque en la integridad de datos mediante Result Pattern y seguridad robusta con el patrón BFF en .NET 8.",
+  technologies: [
+    ".NET 8",
+    "PostgreSQL",
+    "React",
+    "TanStack Query",
+    "TS",
+    "DDD Principles",
+    "BFF Pattern",
+  ],
+  image: previewKanbanApp.src,
+  category: "Full-Stack / Architecture Pilot",
+  year: "2026",
+  status: "En Desarrollo",
+  pathname: kandoProjectDetails.metaData.pathname,
 };

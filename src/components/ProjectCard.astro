@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 import { ExternalLink, FileText } from "lucide-react";
 import ProjectBadge from "./ProjectBadge.astro";
 import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
-import type { ProjectIntroductionDetails } from "./ProjectsSection.astro";
+import type { ProjectIntroduction } from "@/types/project-introduction";
 
 interface Props {
   position: number;
-  project: ProjectIntroductionDetails;
+  project: ProjectIntroduction;
 }
 
 const { position, project } = Astro.props;
@@ -47,7 +47,7 @@ const { position, project } = Astro.props;
           <div
             class={cn(
               "backdrop-blur-xl border rounded-2xl px-4 py-2 shadow-2xl",
-              project.status === "Production"
+              project.status === "Produccion"
                 ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
                 : "bg-blue-500/20 border-blue-500/30 text-blue-400",
             )}
@@ -108,7 +108,12 @@ const { position, project } = Astro.props;
 
         {/* Action Buttons */}
         <div class="flex gap-4 pt-8">
-          <DecoratedLink size={"sm"} target="_blank" href={project.live}>
+          <DecoratedLink
+            size={"sm"}
+            target="_blank"
+            href={project.live}
+            className={cn(project.live ? "block" : "hidden")}
+          >
             <div
               class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
             >

@@ -9,16 +9,14 @@ import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
 import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
 import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
 import { devLinksProjectDetails } from "@/data/dev-links.project";
-import { kanbanProjectDetails } from "@/data/kanban-app.project";
-import { whereInTheWorldProjectDetails } from "@/data/where-in-the-world.project";
+import { kandoProjectDetails } from "@/data/kanban-app.project";
 import Layout from "@/layouts/Layout.astro";
 import type { ProjectDetails } from "@/types/project-details";
 
 export function getStaticPaths() {
   const projectDetails: ProjectDetails[] = [
     devLinksProjectDetails,
-    kanbanProjectDetails,
-    whereInTheWorldProjectDetails,
+    kandoProjectDetails,
   ];
 
   return projectDetails.map((project) => ({

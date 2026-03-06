@@ -8,21 +8,23 @@ import mobileVideo3Preview from "@/assets/devlinks/mobileVideo3Preview.webp";
 import videoPhone from "@/assets/devlinks/videoPhone.webm";
 import videoPhone2 from "@/assets/devlinks/videoPhone2.webm";
 import videoPhone3 from "@/assets/devlinks/videoPhone3.webm";
+import previewDevLinks from "@/assets/home/previewDevLinks.webp";
 import type { ProjectDetails } from "@/types/project-details";
+import type { ProjectIntroduction } from "@/types/project-introduction";
 import {
-  Clock,
-  Code2,
   Database,
-  LayoutGrid,
+  Lock,
   Monitor,
-  Server,
+  RefreshCw,
   Shield,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 
 export const devLinksProjectDetails: ProjectDetails = {
   title: "DevLinks",
   description:
-    "Aplicación Full-Stack que permite a desarrolladores crear páginas de enlaces personalizadas para centralizar su presencia en línea, con plantillas personalizables e interfaz intuitiva.",
+    "Ecosistema Full-Stack diseñado para desarrolladores que buscan centralizar su identidad digital. Ofrece una experiencia de edición en tiempo real con persistencia de datos robusta y un sistema de seguridad avanzado.",
   create_at: "2024",
   projectType: "Full-Stack",
 
@@ -30,6 +32,29 @@ export const devLinksProjectDetails: ProjectDetails = {
     github: "https://github.com/DiegoPMz/devlink-frontend",
     live: "https://devlink-frontend.vercel.app",
   },
+
+  projectMetrics: [
+    {
+      label: "Arquitectura",
+      value: "E2E Type-Safe",
+      icon: ShieldCheck,
+    },
+    {
+      label: "Seguridad Auth",
+      value: "Token Rotation",
+      icon: Lock,
+    },
+    {
+      label: "Sincronización",
+      value: "Optimistic UI",
+      icon: RefreshCw,
+    },
+    {
+      label: "Rendimiento",
+      value: "100/100 Lighthouse",
+      icon: Zap,
+    },
+  ],
 
   mediaItems: [
     {
@@ -70,99 +95,102 @@ export const devLinksProjectDetails: ProjectDetails = {
 
   techStack: [
     {
-      name: "React",
+      name: "React & TypeScript",
       category: "Frontend",
-      usage: "Construcción de interfaz de usuario",
-      color: "from-blue-400 to-cyan-400",
-    },
-    {
-      name: "TypeScript",
-      category: "Language",
-      usage: "Tipado estático en frontend y backend",
-      color: "from-blue-500 to-indigo-500",
-    },
-    {
-      name: "Vite",
-      category: "Tooling",
-      usage: "Bundler y entorno de desarrollo frontend",
-      color: "from-purple-400 to-pink-400",
+      usage: "Interfaz reactiva con tipado estricto end-to-end",
+      color: "from-blue-400 to-indigo-500",
     },
     {
       name: "Zustand",
       category: "State Management",
-      usage: "Gestión global de estado",
+      usage:
+        "Gestión de estado global y persistencia con middleware personalizado",
       color: "from-teal-400 to-green-400",
     },
     {
-      name: "Tailwind CSS",
-      category: "Styling",
-      usage: "Sistema de diseño y estilos",
-      color: "from-cyan-400 to-teal-400",
-    },
-    {
-      name: "Node.js",
+      name: "Node.js & Express",
       category: "Backend",
-      usage: "Runtime para el servidor",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      name: "Express",
-      category: "Backend",
-      usage: "Framework para construcción de API",
-      color: "from-gray-400 to-gray-600",
+      usage: "Arquitectura MCV y API RESTful",
+      color: "from-green-500 to-emerald-600",
     },
     {
       name: "MongoDB",
       category: "Database",
-      usage: "Almacenamiento de datos principal",
+      usage: "Modelado de datos no relacionales",
       color: "from-green-400 to-teal-400",
     },
     {
       name: "Zod",
-      category: "Validation",
-      usage: "Validación de datos end-to-end",
+      category: "Security",
+      usage: "Validación de esquemas y contratos de API",
       color: "from-purple-500 to-violet-500",
     },
   ],
 
   projectStory: {
     problem:
-      "Los desarrolladores necesitan múltiples enlaces para mostrar su trabajo (GitHub, LinkedIn, portafolio) pero carecen de una solución centralizada y profesional.",
+      "Las soluciones actuales imponen muros de pago para la personalización básica y carecen de una integración fluida para el flujo de trabajo de un desarrollador.",
     solution:
-      "Plataforma que permite crear páginas personalizadas de enlaces con diseño profesional sin necesidad de conocimientos avanzados.",
+      "Una alternativa Open-Source y auto-hospedable que permite control total sobre la estética y los datos, con un enfoque en la velocidad de carga y seguridad.",
     impact:
-      "Facilitó la centralización de enlaces profesionales en una sola página, con interfaces atractivas y personalizables.",
+      "Logré un sistema de gestión de enlaces con un Performance Score de 100 y una arquitectura de seguridad que previene el secuestro de sesiones mediante rotación de tokens.",
   },
 
   projectRolAndResp: [
     {
-      category: "Frontend Development",
+      category: "Full-Stack Architecture",
       responsibilities: [
-        "Arquitectura y desarrollo de la interfaz con React",
-        "Implementación de diseño responsive",
-        "Optimización de performance y UX",
-        "Gestión de estado global",
+        "Diseño del modelo de datos en MongoDB enfocado en escalabilidad",
+        "Implementación del flujo de autenticación seguro (Access/Refresh Tokens)",
+        "Desarrollo de una UI dinámica con previsualización en tiempo real",
+        "Despliegue automatizado y configuración de variables de entorno seguras",
       ],
       icon: Monitor,
       color: "from-blue-500/20 to-cyan-500/20",
     },
+  ],
+
+  challenges: [
     {
-      category: "Backend Development",
-      responsibilities: [
-        "Diseño e implementación de API RESTful",
-        "Sistema de autenticación JWT avanzado",
-        "Optimización de consultas a base de datos",
-        "Integración con servicios externos",
-      ],
-      icon: Server,
-      color: "from-emerald-500/20 to-green-500/20",
+      title: "Hardening de Autenticación JWT",
+      problem:
+        "Necesidad de invalidar sesiones de forma remota en un sistema teóricamente stateless.",
+      solution:
+        "Estrategia de Whitelisting y Refresh Token Rotation, asegurando que cada token sea de un solo uso.",
+      impact:
+        "Seguridad de nivel bancario en el manejo de sesiones de usuario.",
+      icon: Shield,
+    },
+    {
+      title: "Sincronización de Estado Compleja",
+      problem:
+        "Mantener la UI sincronizada con la DB evitando race conditions y peticiones redundantes.",
+      solution:
+        "Implementación de actualizaciones optimistas en Zustand y lógica de 'dirty checking' antes de disparar peticiones HTTP.",
+      impact: "Reducción del 70% en el tráfico innecesario hacia la API.",
+      icon: Database,
     },
   ],
+
+  projectStats: {
+    performanceScore: "100",
+    accessibility: "100",
+    loadTime: "0.5s",
+    seoScore: "91",
+  },
+
+  metaData: {
+    title: "DevLinks -- Diego Pm",
+    description:
+      "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. Estas páginas facilitan la presentación de perfiles, proyectos y otras plataformas en un solo lugar, optimizando la presencia en línea de los profesionales. La aplicación ofrece plantillas personalizables y una interfaz intuitiva, lo que permite a los usuarios diseñar páginas atractivas sin necesidad de conocimientos avanzados en desarrollo web.",
+    keywords:
+      "DevLinks, aplicación full-stack, páginas de enlaces, enlaces personalizados, desarrolladores, React, TypeScript, Vite, Zustand, Tailwind CSS, Node.js, Express, MongoDB, Zod, interfaz intuitiva, plantillas personalizables, gestión de enlaces, autenticación JWT, API REST, desarrollo frontend, desarrollo backend, plataforma para desarrolladores, presencia en línea, proyecto web, diseño responsive, validación de datos, seguridad web",
+    pathname: "DevLink",
+  },
 
   timelinePhase: [
     {
       phase: "Análisis y Planificación",
-      duration: "Semana 1",
       description: "Definición de arquitectura y requerimientos técnicos",
       deliverables: [
         "Diagramas de entidad-relación",
@@ -173,7 +201,6 @@ export const devLinksProjectDetails: ProjectDetails = {
     },
     {
       phase: "Desarrollo MVP",
-      duration: "Semanas 2-8",
       description: "Implementación de funcionalidades core",
       deliverables: [
         "Sistema de autenticación",
@@ -185,7 +212,6 @@ export const devLinksProjectDetails: ProjectDetails = {
     },
     {
       phase: "Optimización",
-      duration: "Semana 9",
       description: "Mejoras de performance y seguridad",
       deliverables: [
         "Middleware de validación JWT",
@@ -193,25 +219,6 @@ export const devLinksProjectDetails: ProjectDetails = {
         "Testing E2E",
       ],
       color: "from-blue-400 to-cyan-400",
-    },
-  ],
-
-  challenges: [
-    {
-      title: "Gestión de Tokens JWT",
-      problem:
-        "Falta de mecanismo nativo para invalidar tokens comprometidos o no vigentes",
-      solution:
-        "Implementación de sistema whitelist con refresh token rotation",
-      impact: "Reducción del 100% en accesos no autorizados",
-      icon: Shield,
-    },
-    {
-      title: "Persistencia en Cliente",
-      problem: "Sincronización compleja entre estado global y localStorage",
-      solution: "Desarrollo de helper para gestión automática con validación",
-      impact: "Reducción del 70% en llamadas a API innecesarias",
-      icon: Database,
     },
   ],
 
@@ -233,27 +240,26 @@ export const devLinksProjectDetails: ProjectDetails = {
       ],
     },
   ],
+};
 
-  projectStats: {
-    performanceScore: "100",
-    accessibility: "100",
-    loadTime: "0.5s",
-    seoScore: "91",
-  },
-
-  projectMetrics: [
-    { label: "Tiempo Desarrollo", value: "10 semanas", icon: Clock },
-    { label: "Endpoints API", value: "12+", icon: Code2 },
-    { label: "Componentes UI", value: "30+", icon: LayoutGrid },
-    { label: "Seguridad", value: "JWT", icon: Shield },
+export const devLinksIntroduction: ProjectIntroduction = {
+  title: "DevLinks",
+  subtitle: "Plataforma Full-Stack de Identidad Digital",
+  description:
+    "Solución de alto rendimiento para centralizar presencia online. Destaca por su sistema de seguridad avanzado con Refresh Token Rotation y una experiencia de usuario fluida mediante sincronización optimista de estado.",
+  technologies: [
+    "React",
+    "Zustand",
+    "TypeScript",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "JWT Security",
   ],
-  metaData: {
-    title: "DevLinks -- Diego Pm",
-    description:
-      "DevLinks es una aplicación que permite a los desarrolladores crear páginas de enlaces personalizadas de manera rápida y sencilla. Estas páginas facilitan la presentación de perfiles, proyectos y otras plataformas en un solo lugar, optimizando la presencia en línea de los profesionales. La aplicación ofrece plantillas personalizables y una interfaz intuitiva, lo que permite a los usuarios diseñar páginas atractivas sin necesidad de conocimientos avanzados en desarrollo web.",
-    keywords:
-      "DevLinks, aplicación full-stack, páginas de enlaces, enlaces personalizados, desarrolladores, React, TypeScript, Vite, Zustand, Tailwind CSS, Node.js, Express, MongoDB, Zod, interfaz intuitiva, plantillas personalizables, gestión de enlaces, autenticación JWT, API REST, desarrollo frontend, desarrollo backend, plataforma para desarrolladores, presencia en línea, proyecto web, diseño responsive, validación de datos, seguridad web",
-
-    pathname: "devLink",
-  },
+  image: previewDevLinks.src,
+  live: "https://devlink-frontend.vercel.app/",
+  category: "Full-Stack Application",
+  year: "2024",
+  status: "Produccion",
+  pathname: devLinksProjectDetails.metaData.pathname,
 };

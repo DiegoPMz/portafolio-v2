@@ -1,73 +1,13 @@
 ---
+import type { ProjectIntroduction } from "@/types/project-introduction";
 import ProjectCard from "./ProjectCard.astro";
-import previewDevLinks from "@/assets/home/previewDevLinks.webp";
-import previewKanbanApp from "@/assets/home/previewKanbanApp.webp";
-import previewWITW from "@/assets/home/previewWITW.webp";
-import { devLinksProjectDetails } from "@/data/dev-links.project";
-import { kanbanProjectDetails } from "@/data/kanban-app.project";
-import { whereInTheWorldProjectDetails } from "@/data/where-in-the-world.project";
 
-export interface ProjectIntroductionDetails {
-  title: string;
-  subtitle: string;
-  description: string;
-  technologies: string[];
-  image: string;
-  live: string;
-  category: string;
-  year: string;
-  status: string;
-  pathname: string;
-}
+import { devLinksIntroduction } from "@/data/dev-links.project";
+import { kandoIntroduction } from "@/data/kanban-app.project";
 
-const projects: ProjectIntroductionDetails[] = [
-  {
-    title: "DevLinks",
-    subtitle: "App para crear tu perfil de enlaces personalizado",
-    description:
-      "Centraliza tus enlaces clave en un perfil profesional personalizable. Agrega tus redes sociales para que tu audiencia pueda encontrarte fácilmente. Actualiza tu contenido en cualquier momento sin cambiar el enlace principal.",
-    technologies: [
-      "React",
-      "Tailwind CSS",
-      "Zustand",
-      "TypeScript",
-      "Nodejs",
-      "Express",
-      "MongoDb",
-    ],
-    image: previewDevLinks.src,
-    live: "https://devlink-frontend.vercel.app/",
-    category: "Web Application",
-    year: "2024",
-    status: "Production",
-    pathname: devLinksProjectDetails.metaData.pathname,
-  },
-  {
-    title: "KanbanApp",
-    subtitle: "Aplicación para organizar tareas diarias",
-    description:
-      "Una app minimalista para gestionar tareas al estilo Kanban. Sin complicaciones: solo tableros, tarjetas y arrastrar/soltar. Perfecta para quienes aman la productividad sin distracciones.",
-    technologies: ["React", "Vite", "Dnd kit"],
-    image: previewKanbanApp.src,
-    live: "https://kanban-app-nine-xi.vercel.app/",
-    category: "Web Application",
-    year: "2023",
-    status: "Production",
-    pathname: kanbanProjectDetails.metaData.pathname,
-  },
-  {
-    title: "Where in the world",
-    subtitle: "Página que te muestra datos clave de cada país",
-    description:
-      "Fuente de consulta organizada con información geográfica y política actualizada. Contiene: monedas, dominios web oficiales, divisiones administrativas y datos clave de cada país. Perfecta para proyectos académicos o aprendizaje.",
-    technologies: ["React", "Vite", "React router", "Api-countries"],
-    image: previewWITW.src,
-    live: "https://where-in-the-world-ashy.vercel.app/",
-    category: "Reference Web App",
-    year: "2023",
-    status: "Production",
-    pathname: whereInTheWorldProjectDetails.metaData.pathname,
-  },
+const projects: ProjectIntroduction[] = [
+  devLinksIntroduction,
+  kandoIntroduction,
 ];
 ---
 

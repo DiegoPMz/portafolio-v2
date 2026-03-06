@@ -39,10 +39,15 @@ const { projectLinks } = Astro.props;
           <Github className="w-4 h-4 min-w-4 min-h-4 m-0 md:mr-3" />
           <span class="hidden md:inline"> Código </span>
         </DecoratedLink>
-        <GradientLink size="sm" href={projectLinks.live} target="_blank">
-          <ExternalLink className="w-4 h-4 mr-2" />
-          Demo Live
-        </GradientLink>
+
+        {
+          projectLinks.live && (
+            <GradientLink size="sm" href={projectLinks.live} target="_blank">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Demo Live
+            </GradientLink>
+          )
+        }
       </div>
     </div>
   </div>

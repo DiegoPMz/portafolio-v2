@@ -63,7 +63,7 @@ export interface TimelinePhase {
 
 export interface ProjectLinks {
   github: string;
-  live: string;
+  live?: string;
 }
 
 export interface ProjectDetails {
