@@ -10,7 +10,8 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import previewKanbanApp from "@/assets/home/previewKanbanApp.webp";
+import kandoPresentationImage from "@/assets/kando/kando_presentation-image.webp";
+import kandoPhonesMock from "@/assets/kando/kando_phones_mock.webp";
 
 export const kandoProjectDetails: ProjectDetails = {
   title: "Kando",
@@ -27,14 +28,13 @@ export const kandoProjectDetails: ProjectDetails = {
   mediaItems: [
     {
       type: "image",
-      src: "/images/kando-desktop.png",
+      src: kandoPresentationImage.src,
       title: "Dashboard Principal - Visualización Kanban",
     },
     {
-      type: "video",
-      src: "/videos/kando-demo.mp4",
-      title: "Interacción de Drag and Drop y Sincronización",
-      videoPrev: "/images/previews/kando-preview.png",
+      type: "image",
+      src: kandoPhonesMock.src,
+      title: "Interfaz en dispositivos móviles",
     },
   ],
 
@@ -60,7 +60,7 @@ export const kandoProjectDetails: ProjectDetails = {
     {
       name: "Tailwind CSS v4",
       category: "Styling",
-      usage: "Diseño atómico con CVA y Radix UI",
+      usage: "Diseño atómico con ShadCn",
       color: "from-cyan-400 to-blue-500",
     },
     {
@@ -180,14 +180,6 @@ export const kandoProjectDetails: ProjectDetails = {
       ],
     },
   ],
-
-  projectStats: {
-    performanceScore: "99",
-    accessibility: "100",
-    loadTime: "0.3s",
-    seoScore: "95",
-  },
-
   projectMetrics: [
     { label: "Arquitectura", value: "Hexagonal / VSA", icon: Layers },
     { label: "Seguridad", value: "BFF / HttpOnly", icon: ShieldCheck },
@@ -219,7 +211,7 @@ export const kandoIntroduction: ProjectIntroduction = {
     "DDD Principles",
     "BFF Pattern",
   ],
-  image: previewKanbanApp.src,
+  image: kandoPresentationImage.src,
   category: "Full-Stack / Architecture Pilot",
   year: "2026",
   status: "En Desarrollo",

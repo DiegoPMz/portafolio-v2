@@ -16,6 +16,7 @@ import {
   Lock,
   Monitor,
   RefreshCw,
+  Server,
   Shield,
   ShieldCheck,
   Zap,
@@ -138,15 +139,26 @@ export const devLinksProjectDetails: ProjectDetails = {
 
   projectRolAndResp: [
     {
-      category: "Full-Stack Architecture",
+      category: "Frontend Development",
       responsibilities: [
-        "Diseño del modelo de datos en MongoDB enfocado en escalabilidad",
-        "Implementación del flujo de autenticación seguro (Access/Refresh Tokens)",
-        "Desarrollo de una UI dinámica con previsualización en tiempo real",
-        "Despliegue automatizado y configuración de variables de entorno seguras",
+        "Desarrollo de una interfaz dinámica con previsualización en tiempo real (Live Preview).",
+        "Gestión de estado global reactivo y persistencia optimizada utilizando Zustand.",
+        "Implementación de lógica de sincronización optimista para mejorar la experiencia de usuario (UX).",
+        "Maquetación responsive y sistema de temas personalizables con Tailwind CSS.",
       ],
       icon: Monitor,
       color: "from-blue-500/20 to-cyan-500/20",
+    },
+    {
+      category: "Backend & Infrastructure",
+      responsibilities: [
+        "Diseño y modelado de datos en MongoDB enfocado en la integridad y escalabilidad.",
+        "Arquitectura de seguridad avanzada con rotación de Refresh Tokens y Whitelisting.",
+        "Implementación de API RESTful con validación estricta de esquemas mediante Zod.",
+        "Gestión de despliegue automatizado y configuración de infraestructura segura.",
+      ],
+      icon: Server,
+      color: "from-emerald-500/20 to-teal-500/20",
     },
   ],
 

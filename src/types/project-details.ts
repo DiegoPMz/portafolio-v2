@@ -77,7 +77,7 @@ export interface ProjectDetails {
   projectMetrics: ProjectMetric[];
   challenges: Challenge[];
   learnings: LearningCategory[];
-  projectStats: ProjectStats;
+  projectStats?: ProjectStats;
   projectRolAndResp: ProjectRoleAndResp[];
   timelinePhase: TimelinePhase[];
   projectLinks: ProjectLinks;

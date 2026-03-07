@@ -9,7 +9,7 @@ export const GallerySidebarPanel = ({
   projectStatsValues,
 }: {
   mediaItems: MediaItem[];
-  projectStatsValues: ProjectStats;
+  projectStatsValues?: ProjectStats;
 }) => {
   const [activeMedia, setActiveMedia] = useState<number>(0);
 
@@ -38,7 +38,9 @@ export const GallerySidebarPanel = ({
           />
         </div>
 
-        <ProjectOverviewStats stats={projectStatsValues} />
+        {projectStatsValues && (
+          <ProjectOverviewStats stats={projectStatsValues} />
+        )}
       </div>
     </div>
   );

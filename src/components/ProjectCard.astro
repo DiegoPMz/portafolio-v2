@@ -1,9 +1,9 @@
 ---
 import { cn } from "@/lib/utils";
+import type { ProjectIntroduction } from "@/types/project-introduction";
 import { ExternalLink, FileText } from "lucide-react";
 import ProjectBadge from "./ProjectBadge.astro";
 import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
-import type { ProjectIntroduction } from "@/types/project-introduction";
 
 interface Props {
   position: number;
@@ -46,10 +46,10 @@ const { position, project } = Astro.props;
           </div>
           <div
             class={cn(
-              "backdrop-blur-xl border rounded-2xl px-4 py-2 shadow-2xl",
+              "backdrop-blur-xl border rounded-2xl px-4 py-2 shadow-2xl ",
               project.status === "Produccion"
-                ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
-                : "bg-blue-500/20 border-blue-500/30 text-blue-400",
+                ? "bg-emerald-500/20 border-emerald-500/30 text-green-950 "
+                : "bg-blue-500/20 border-blue-500/30 text-blue-950 ",
             )}
           >
             <span class="text-sm font-light">{project.status}</span>
