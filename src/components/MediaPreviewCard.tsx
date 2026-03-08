@@ -1,6 +1,7 @@
 import type { MediaItem } from "@/types/project-details";
 import { useEffect, useState, type PropsWithChildren } from "react";
 import { MediaPlayOverlay } from "./ui/MediaPlayOverlay";
+import { cn } from "@/lib/utils";
 
 interface MediaPreviewCardProps {
   src: string;
@@ -37,32 +38,44 @@ export const MediaPreviewCard = ({
             <video
               src={src}
               muted
-              loop
               controls
               aria-label={alt}
               className="rounded-2xl w-full h-full group-hover:scale-[1.02] transition-transform duration-700 cursor-pointer"
-              onPlay={() => setIsVideoPlaying(true)}
+              onPlaying={() => setIsVideoPlaying(true)}
               onPause={() => setIsVideoPlaying(false)}
+              onWaiting={() => setIsVideoPlaying(false)}
+              onSeeking={() => setIsVideoPlaying(true)}
             />
 
-            {!isVideoPlaying && (
-              <div className="pointer-events-none absolute inset-0 ">
-                <MediaPlayOverlay />
-              </div>
-            )}
+            <div
+              className={cn(
+                "pointer-events-none absolute inset-0 flex items-center justify-center",
+                "transition-all duration-300 ease-in-out",
+                "opacity-0 scale-110",
+                !isVideoPlaying && "opacity-100 scale-100 delay-200",
+              )}
+            >
+              <MediaPlayOverlay />
+            </div>
           </>
         )}
 
-        {!isVideoPlaying && (
-          <div className="absolute bottom-6 left-6 right-6 hidden lg:block">
-            <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-6 py-4">
-              <h3 className="text-xl font-light text-zinc-100">{children}</h3>
-              <p className="text-zinc-400 text-sm mt-1">
-                Click para ver en detalle
-              </p>
-            </div>
+        <div
+          className={cn(
+            "absolute bottom-6 left-6 right-6 hidden lg:block",
+            "transition-all duration-500 ease-out",
+            "opacity-0 translate-y-4 pointer-events-none",
+            !isVideoPlaying &&
+              "opacity-100 translate-y-0 pointer-events-auto delay-350",
+          )}
+        >
+          <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-6 py-4 shadow-2xl">
+            <h3 className="text-xl font-light text-zinc-100">{children}</h3>
+            <p className="text-zinc-400 text-sm mt-1">
+              Click para ver en detalle
+            </p>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
