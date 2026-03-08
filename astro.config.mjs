@@ -13,6 +13,7 @@ export default defineConfig({
 
   integrations: [react()],
   prefetch: {
-    prefetchAll: false,
+    prefetchAll: true,
+    defaultStrategy: "hover",
   },
 });

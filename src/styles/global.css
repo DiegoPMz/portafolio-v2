@@ -18,11 +18,11 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 scroll-smooth;
+    @apply border-border outline-ring/50;
     font-family: "Rubik", sans-serif;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-zinc-950 text-foreground;
   }
 }

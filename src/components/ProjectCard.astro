@@ -127,11 +127,7 @@ const { position, project } = Astro.props;
               </span>
             </div>
           </DecoratedLink>
-          <DecoratedLink
-            size={"xs"}
-            href=`proyecto/${project.pathname}`
-            data-astro-prefetch
-          >
+          <DecoratedLink size={"xs"} href={`/proyecto/${project.pathname}`}>
             <AccentDotsOverlay />
             <div
               class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
