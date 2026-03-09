@@ -1,0 +1,153 @@
+---
+import { cn } from "@/lib/utils";
+import type { ProjectIntroduction } from "@/types/project-introduction";
+import { ExternalLink, FileText } from "lucide-react";
+import ProjectBadge from "./ProjectBadge.astro";
+import { AccentDotsOverlay, DecoratedLink } from "./ui/DecoratedLink";
+
+interface Props {
+  position: number;
+  project: ProjectIntroduction;
+}
+
+const { position, project } = Astro.props;
+---
+
+<div class="group relative">
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-violet-500/5 to-purple-500/5 blur-3xl rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-1000"
+  >
+  </div>
+
+  <div
+    class={cn(
+      `grid lg:grid-cols-2 gap-8 lg:gap-16 items-center `,
+      position % 2 === 1 && "lg:grid-flow-col-dense",
+    )}
+  >
+    <div class={cn("relative ", position % 2 === 1 && "lg:col-start-2")}>
+      <div
+        class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 p-4 backdrop-blur-sm border border-zinc-700/30"
+      >
+        <img
+          src={project.image || "/placeholder.svg"}
+          alt={project.title}
+          class="w-full h-60 md:h-[400px] lg:h-88 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-1000"
+        />
+
+        {/* Floating badges */}
+        <div class="absolute -top-1.5 -right-4 space-y-3">
+          <div
+            class="bg-zinc-900/90 backdrop-blur-xl border border-zinc-700/50 rounded-2xl px-4 py-2 shadow-2xl"
+          >
+            <span class="text-zinc-300 text-sm font-light">
+              {project.category}
+            </span>
+          </div>
+          <div
+            class={cn(
+              "backdrop-blur-xl border rounded-2xl px-4 py-2 shadow-2xl ",
+              project.status === "Produccion"
+                ? "bg-emerald-500/20 border-emerald-500/30 text-green-950 "
+                : "bg-blue-500/20 border-blue-500/30 text-blue-950 ",
+            )}
+          >
+            <span class="text-sm font-light">{project.status}</span>
+          </div>
+        </div>
+
+        {/* Year badge */}
+        <div class="absolute -bottom-3 -left-4">
+          <div
+            class="bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl px-6 py-3 shadow-2xl shadow-blue-500/30"
+          >
+            <span class="text-zinc-900 font-semibold text-lg">
+              {project.year}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Project Content */}
+    <div class={cn(`space-y-8`, position % 2 === 1 && "lg:col-start-1")}>
+      <div class="space-y-6">
+        <div class="space-y-3">
+          <div
+            class="text-sm text-zinc-500 tracking-[0.2em] uppercase font-light"
+          >
+            {project.subtitle}
+          </div>
+          <h3
+            class="text-4xl lg:text-5xl font-extralight text-zinc-100 leading-tight"
+          >
+            {project.title}
+          </h3>
+        </div>
+
+        <div class="w-20 h-px bg-gradient-to-r from-blue-400 to-purple-400">
+        </div>
+
+        <p class="text-xl text-zinc-400 leading-relaxed font-light">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Technologies */}
+      <div class="space-y-6">
+        <h4 class="text-sm text-zinc-500 tracking-wider uppercase font-light">
+          Stack Tecnológico
+        </h4>
+        <div class="flex flex-wrap gap-3">
+          {
+            project.technologies.map((tech) => (
+              <ProjectBadge>{tech}</ProjectBadge>
+            ))
+          }
+        </div>
+
+        {/* Action Buttons */}
+        <div class="flex gap-4 pt-8">
+          <DecoratedLink
+            size={"sm"}
+            target="_blank"
+            href={project.live}
+            className={cn(project.live ? "block" : "hidden")}
+          >
+            <div
+              class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
+            >
+              <ExternalLink
+                className="w-5 h-5 text-zinc-400 group-hover:text-zinc-200 transition-colors duration-300 group-hover:rotate-12"
+              />
+              <span
+                class="text-zinc-300 group-hover:text-zinc-100 font-light transition-colors duration-300"
+              >
+                Ir a la App
+              </span>
+            </div>
+          </DecoratedLink>
+          <DecoratedLink size={"xs"} href={`/proyecto/${project.pathname}`}>
+            <AccentDotsOverlay />
+            <div
+              class="w-full flex flex-col items-center gap-1 sm:flex-row sm:gap-3 sm:justify-center"
+            >
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <FileText
+                  className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
+                />
+              </div>
+              <span
+                class="text-zinc-300 group-hover:text-zinc-100 font-medium transition-colors duration-300"
+              >
+                Ver Detalles
+              </span>
+            </div>
+          </DecoratedLink>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

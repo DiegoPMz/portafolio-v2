@@ -1,0 +1,115 @@
+---
+import type {
+  ProjectRoleAndResp,
+  TimelinePhase,
+} from "@/types/project-details";
+import { cn } from "@/lib/utils";
+import { InfoCard } from "./InfoCard";
+import { ProjectTimeLine } from "./ProjectTimeLine";
+
+interface Props {
+  projectRoleAndResp: ProjectRoleAndResp[];
+  timelinePhase: TimelinePhase[];
+}
+
+const { projectRoleAndResp, timelinePhase } = Astro.props;
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 space-y-6">
+      <h2 class="text-5xl font-extralight tracking-tight">
+        <span class="text-zinc-200">Mi Rol &</span>
+        <span
+          class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Proceso
+        </span>
+      </h2>
+      <div
+        class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+      >
+      </div>
+    </div>
+
+    <div class="space-y-20">
+      {/* Role Section */}
+      <div class="space-y-12">
+        <div class="text-center space-y-4">
+          <h3 class="text-3xl font-light text-zinc-100">
+            Responsabilidades del Proyecto
+          </h3>
+          <p class="text-zinc-400 max-w-2xl mx-auto">
+            Como único desarrollador, asumí múltiples responsabilidades para
+            llevar el proyecto desde la idea hasta producción
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          {
+            projectRoleAndResp.map((area) => (
+              <InfoCard className="group">
+                <InfoCard.Content className="text-left">
+                  <div class="flex items-center space-x-4">
+                    <div
+                      class={cn(
+                        "w-16 h-16 bg-gradient-to-br  rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                        area.color,
+                      )}
+                    >
+                      <area.icon className="w-8 h-8 text-blue-400" />
+                    </div>
+                    <h4 class="text-xl font-light text-zinc-100">
+                      {area.category}
+                    </h4>
+                  </div>
+                  <div class="space-y-3">
+                    {area.responsibilities.map((responsibility) => (
+                      <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                        <span class="text-zinc-400">{responsibility}</span>
+                      </div>
+                    ))}
+                  </div>
+                </InfoCard.Content>
+              </InfoCard>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Process Section */}
+      <div class="space-y-12">
+        <div class="text-center space-y-4">
+          <h3 class="text-3xl font-light text-zinc-100">
+            Metodología de Desarrollo
+          </h3>
+          <p class="text-zinc-400 max-w-2xl mx-auto">
+            Un proceso iterativo y estructurado que garantiza calidad y
+            eficiencia en cada etapa
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            {/* Vertical Timeline Line */}
+            <div
+              class="absolute left-5 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-400 via-purple-400 to-blue-400 opacity-30"
+            >
+            </div>
+
+            <div class="space-y-16">
+              {
+                timelinePhase.map((phase, index) => (
+                  <ProjectTimeLine
+                    details={{ ...phase, position: index + 1 }}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

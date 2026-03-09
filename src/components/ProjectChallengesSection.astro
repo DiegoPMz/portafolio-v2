@@ -1,0 +1,103 @@
+---
+import type { Challenge } from "@/types/project-details";
+import { AlertTriangle, TrendingUp } from "lucide-react";
+import { InfoCard } from "./InfoCard";
+
+interface Props {
+  challenges: Challenge[];
+}
+
+const { challenges } = Astro.props;
+---
+
+<section class="relative py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="space-y-16">
+      <div class="text-center space-y-6">
+        <h2 class="text-5xl font-extralight tracking-tight">
+          <span class="text-zinc-200">Desafíos &</span>
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            Soluciones
+          </span>
+        </h2>
+        <div
+          class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+        >
+        </div>
+      </div>
+
+      <div class="space-y-16">
+        {
+          challenges.map((challenge) => (
+            <div class="relative">
+              <InfoCard>
+                <InfoCard.Content className="text-left p-12">
+                  <div class="grid lg:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                      <div class="flex items-center space-x-4">
+                        <div class="min-w-16 min-h-16 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center">
+                          <AlertTriangle className="w-8 h-8 text-red-400" />
+                        </div>
+                        <div>
+                          <h3 class="text-2xl font-light text-zinc-100">
+                            {challenge.title}
+                          </h3>
+                          <div class="text-red-400 text-sm font-medium">
+                            Desafío
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-zinc-400 leading-relaxed">
+                        {challenge.problem}
+                      </p>
+                    </div>
+
+                    <div class="space-y-6">
+                      <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-2xl flex items-center justify-center">
+                          <challenge.icon className="w-8 h-8 text-emerald-400" />
+                        </div>
+                        <div>
+                          <h3 class="text-2xl font-light text-zinc-100">
+                            Solución
+                          </h3>
+                          <div class="text-emerald-400 text-sm font-medium">
+                            Implementación
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-zinc-400 leading-relaxed">
+                        {challenge.solution}
+                      </p>
+                    </div>
+
+                    <div class="space-y-6">
+                      <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center">
+                          <TrendingUp className="w-8 h-8 text-blue-400" />
+                        </div>
+                        <div>
+                          <h3 class="text-2xl font-light text-zinc-100">
+                            Impacto
+                          </h3>
+                          <div class="text-blue-400 text-sm font-medium">
+                            Resultado
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-zinc-400 leading-relaxed">
+                        {challenge.impact}
+                      </p>
+                    </div>
+                  </div>
+                </InfoCard.Content>
+              </InfoCard>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

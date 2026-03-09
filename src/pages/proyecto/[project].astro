@@ -1,0 +1,68 @@
+---
+import HomeFooter from "@/components/HomeFooter.astro";
+import NavbarProjects from "@/components/NavbarProjects.astro";
+import ProjectChallengesSection from "@/components/ProjectChallengesSection.astro";
+import ProjectCtaSection from "@/components/ProjectCtaSection.astro";
+import ProjectGallery from "@/components/ProjectGallery.astro";
+import ProjectHeroSection from "@/components/ProjectHeroSection.astro";
+import ProjectLessonsSection from "@/components/ProjectLessonsSection.astro";
+import ProjectRolAndProcessSection from "@/components/ProjectRolAndProcessSection.astro";
+import ProjectTechnologiesSection from "@/components/ProjectTechnologiesSection.astro";
+import { devLinksProjectDetails } from "@/data/dev-links.project";
+import { kandoProjectDetails } from "@/data/kanban-app.project";
+import Layout from "@/layouts/Layout.astro";
+import type { ProjectDetails } from "@/types/project-details";
+
+export function getStaticPaths() {
+  const projectDetails: ProjectDetails[] = [
+    devLinksProjectDetails,
+    kandoProjectDetails,
+  ];
+
+  return projectDetails.map((project) => ({
+    params: { project: project.metaData.pathname },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
+const metaData = project.metaData;
+---
+
+<Layout
+  title={metaData.title}
+  description={metaData.description}
+  keywords={metaData.keywords}
+  pathname={Astro.url.pathname}
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative"
+  >
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div
+        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-radial from-purple-500/9 via-transparent to-transparent blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-radial from-fuchsia-500/9 via-transparent to-transparent blur-3xl"
+      >
+      </div>
+    </div>
+
+    <NavbarProjects projectLinks={project.projectLinks} />
+    <ProjectHeroSection projectDetails={project} />
+    <ProjectGallery
+      mediaItems={project.mediaItems}
+      projectStats={project.projectStats}
+    />
+    <ProjectTechnologiesSection techStack={project.techStack} />
+    <ProjectRolAndProcessSection
+      projectRoleAndResp={project.projectRolAndResp}
+      timelinePhase={project.timelinePhase}
+    />
+    <ProjectChallengesSection challenges={project.challenges} />
+    <ProjectLessonsSection learnings={project.learnings} />
+    <ProjectCtaSection projectLinks={project.projectLinks} />
+    <HomeFooter />
+  </div>
+</Layout>

@@ -1,0 +1,60 @@
+---
+import { Star } from "lucide-react";
+import ProjectMetrics from "./ProjectMetrics.astro";
+import Badge from "./ui/badge.astro";
+import type { ProjectDetails } from "@/types/project-details";
+
+interface Props {
+  projectDetails: ProjectDetails;
+}
+
+const { projectDetails } = Astro.props;
+---
+
+<section class="relative pt-32 md:pt-40 pb-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center space-y-12">
+      <div class="space-y-8">
+        <div class="flex items-center justify-center space-x-4">
+          <Badge
+            className="bg-emerald-500/20 border-emerald-500/30 text-emerald-400 px-4 py-2"
+          >
+            <Star className="w-4 h-4 mr-2" />
+            {projectDetails.projectType}
+          </Badge>
+
+          <Badge
+            className="bg-purple-500/20 border-purple-500/30 text-purple-400 px-4 py-2"
+          >
+            {projectDetails.create_at}
+          </Badge>
+        </div>
+
+        <h1
+          class="text-6xl md:text-8xl font-extralight leading-[0.9] tracking-tight"
+        >
+          <span
+            class="block bg-gradient-to-r from-blue-400 via-violet-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            {projectDetails.title}
+          </span>
+        </h1>
+
+        <p
+          class="text-2xl text-zinc-400 font-light max-w-4xl mx-auto leading-relaxed"
+        >
+          {projectDetails.description}
+        </p>
+      </div>
+
+      {/* Project Metrics */}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        {
+          projectDetails.projectMetrics.map((metric) => (
+            <ProjectMetrics metric={metric} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

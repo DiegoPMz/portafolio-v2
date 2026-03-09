@@ -1,0 +1,49 @@
+---
+import type { ProjectIntroduction } from "@/types/project-introduction";
+import ProjectCard from "./ProjectCard.astro";
+
+import { devLinksIntroduction } from "@/data/dev-links.project";
+import { kandoIntroduction } from "@/data/kanban-app.project";
+
+const projects: ProjectIntroduction[] = [
+  devLinksIntroduction,
+  kandoIntroduction,
+];
+---
+
+<section id="portafolio" class="relative py-16 md:py-32 px-4 md:px-8">
+  <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-24">
+        <div class="space-y-6">
+          <h2 class="text-4xl md:text-6xl font-extralight tracking-tight">
+            <span class="text-zinc-200">Portafolio</span>
+            <span
+              class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Seleccionado
+            </span>
+          </h2>
+          <div
+            class="w-32 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"
+          >
+          </div>
+          <p
+            class="text-xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed"
+          >
+            Una cuidadosa selección de proyectos que demuestran excelencia
+            técnica, innovación y impacto empresarial real.
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-32">
+        {
+          projects.map((project, index) => (
+            <ProjectCard project={project} position={index} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

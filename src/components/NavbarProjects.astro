@@ -1,0 +1,54 @@
+---
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { DecoratedLink } from "./ui/DecoratedLink";
+import { GradientLink } from "./ui/GradientLink";
+import type { ProjectLinks } from "@/types/project-details";
+
+interface Props {
+  projectLinks: ProjectLinks;
+}
+
+const { projectLinks } = Astro.props;
+---
+
+<nav
+  class="fixed top-0 w-full z-50 bg-zinc-950/60 backdrop-blur-3xl border-b border-zinc-800/30"
+>
+  <div class="container mx-auto px-4 py-4 md:px-8 md:py-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="/#portafolio" class="flex items-center space-x-3 group">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+        >
+          <ArrowLeft className="w-5 h-5 text-zinc-900" />
+        </div>
+        <span
+          class="text-zinc-300 text-sm sm:text-base group-hover:text-white transition-colors duration-300 font-light"
+        >
+          Volver al Portfolio
+        </span>
+      </a>
+
+      <div class="flex items-center space-x-4">
+        <DecoratedLink
+          size="compact"
+          className="w-fit"
+          href={projectLinks.github}
+          target="_blank"
+        >
+          <Github className="w-4 h-4 min-w-4 min-h-4 m-0 md:mr-3" />
+          <span class="hidden md:inline"> Código </span>
+        </DecoratedLink>
+
+        {
+          projectLinks.live && (
+            <GradientLink size="sm" href={projectLinks.live} target="_blank">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Demo Live
+            </GradientLink>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</nav>

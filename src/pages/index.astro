@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import AboutMeSection from "@/components/AboutMeSection.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import ExpertiseSection from "@/components/ExpertiseSection.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import HomeFooter from "@/components/HomeFooter.astro";
+import { Navbar } from "@/components/Navbar";
+import ProjectsSection from "@/components/ProjectsSection.astro";
+import Layout, { type LayoutMetaData } from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const homeMetaData: LayoutMetaData = {
+  title: "Diego Peralta - Portafolio",
+  description:
+    "Portafolio profesional de Diego Peralta, desarrollador web full-stack con base en Ciudad de México. Experiencia en desarrollo frontend y backend utilizando tecnologías modernas como JavaScript, TypeScript, React, Angular, Node.js y MongoDB.",
+  keywords:
+    "Diego Peralta, desarrollador web, desarrollador full-stack, frontend, backend, JavaScript, TypeScript, React, Angular, Node.js, Express, MongoDB, HTML, CSS, programación web, Ciudad de México",
+  pathname: Astro.url.pathname,
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout {...homeMetaData}>
+  <div
+    class="bg-gradient-to-br from-zinc-950 via-neutral-950 to-stone-950 text-white relative overflow-hidden"
+  >
+    {/* Ambient lighting */}
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div
+        class="absolute top-0 left-1/4 w-[800px] h-[800px] bg-radial from-amber-500/5 via-transparent to-transparent blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-radial from-rose-500/5 via-transparent to-transparent blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-radial from-violet-500/3 via-transparent to-transparent blur-3xl"
+      >
+      </div>
+    </div>
+
+    <Navbar client:idle />
+    <HeroSection />
+    <AboutMeSection />
+    <ExpertiseSection />
+    <ProjectsSection />
+    <ContactSection />
+    <HomeFooter transition:persist />
+  </div>
 </Layout>
